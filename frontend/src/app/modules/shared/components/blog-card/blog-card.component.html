@@ -1,0 +1,17 @@
+<div class="blog-card mb-3" *ngIf="blog">
+  <div class="card-image">
+    <img
+      src="../../../../../assets/images/blog-1.jpg"
+      class="img-fluid"
+      alt="blog"
+    />
+  </div>
+  <div class="blog-content">
+    <p class="date">{{ blog.createdAt }}</p>
+    <h5 class="title">{{ blog.title }}</h5>
+    <p class="desc">
+      {{ blog.description }}
+    </p>
+    <a routerLink="{{ blog.id }}" class="button"> Read More </a>
+  </div>
+</div>

@@ -1,0 +1,230 @@
+<app-bread-crumb [title]="title"></app-bread-crumb>
+<div class="store-wrapper home-wrapper-2 py-5">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-3">
+        <div class="filter-card mb-3">
+          <h3 class="filter-title">Shop By Category</h3>
+          <div>
+            <ul class="ps-0">
+              <li>Watch</li>
+              <li>Tv</li>
+              <li>Camera</li>
+              <li>Laptop</li>
+            </ul>
+          </div>
+        </div>
+        <div class="filter-card mb-3">
+          <h3 class="filter-title">Filter By</h3>
+          <div>
+            <h5 class="sub-title">Availablity</h5>
+            <div>
+              <div class="form-check">
+                <input
+                  id="my-input"
+                  class="form-check-input"
+                  type="checkbox"
+                  name=""
+                  value="true"
+                />
+                <label for="my-input" class="form-check-label"
+                  >In Stock (1)</label
+                >
+              </div>
+              <div class="form-check">
+                <input
+                  id="my-input"
+                  class="form-check-input"
+                  type="checkbox"
+                  name=""
+                  value="true"
+                />
+                <label for="my-input" class="form-check-label"
+                  >Our of Stock (0)</label
+                >
+              </div>
+            </div>
+            <h5 class="sub-title">Price</h5>
+            <div class="d-flex justify-content-center">
+              <div class="form-floating">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="From"
+                />
+                <label for="floatingInput">From</label>
+              </div>
+              <div class="form-floating">
+                <input
+                  type="email"
+                  class="form-control"
+                  id="floatingInput1"
+                  placeholder="To"
+                />
+                <label for="floatingInput1">To</label>
+              </div>
+            </div>
+            <h5 class="sub-title">Colors</h5>
+            <div>
+              <app-color></app-color>
+            </div>
+            <h5 class="sub-title">Size</h5>
+            <div>
+              <div class="form-check">
+                <input
+                  id="color-1"
+                  class="form-check-input"
+                  type="checkbox"
+                  name=""
+                  value="true"
+                />
+                <label for="color-1" class="form-check-label">S (2)</label>
+              </div>
+              <div class="form-check">
+                <input
+                  id="color-2"
+                  class="form-check-input"
+                  type="checkbox"
+                  name=""
+                  value="true"
+                />
+                <label for="color-2" class="form-check-label">M (2)</label>
+              </div>
+              <div class="form-check">
+                <input
+                  id="color-3"
+                  class="form-check-input"
+                  type="checkbox"
+                  name=""
+                  value="true"
+                />
+                <label for="color-3" class="form-check-label">L (2)</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="filter-card mb-3">
+          <h3 class="filter-title">Product Tags</h3>
+          <div>
+            <div
+              class="product-tags d-flex flex-wrap align-items-center gap-10"
+            >
+              <span class="badge bg-light text-secondary rounded-3 py-2 px-3">
+                Headphone
+              </span>
+              <span class="badge bg-light text-secondary rounded-3 py-2 px-3">
+                Laptop
+              </span>
+              <span class="badge bg-light text-secondary rounded-3 py-2 px-3">
+                Mobile
+              </span>
+              <span class="badge bg-light text-secondary rounded-3 py-2 px-3">
+                Wire
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="filter-card mb-3">
+          <h3 class="filter-title">Ramdom Product</h3>
+          <div>
+            <div class="random-products mb-3 d-flex">
+              <div class="w-50">
+                <img
+                  src="../../../../../assets/images/watch.jpg"
+                  class="img-fluid"
+                  alt="watch"
+                />
+              </div>
+              <div class="w-50">
+                <h5>Kids headphones bulk 10 pack multi colored for students</h5>
+                <app-star-rating
+                  [maxStars]="5"
+                  [selectedValue]="selectedRating"
+                  (ratingChanged)="onRatingChanged($event)"
+                ></app-star-rating>
+                <b>$300</b>
+              </div>
+            </div>
+            <div class="random-products d-flex">
+              <div class="w-50">
+                <img
+                  src="../../../../../assets/images/watch.jpg"
+                  class="img-fluid"
+                  alt="watch"
+                />
+              </div>
+              <div class="w-50">
+                <h5>Kids headphones bulk 10 pack multi colored for students</h5>
+                <app-star-rating
+                  [maxStars]="5"
+                  [selectedValue]="selectedRating"
+                  (ratingChanged)="onRatingChanged($event)"
+                ></app-star-rating>
+                <b>$300</b>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-9">
+        <div class="filter-sort-grid mb-4">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center gap-10">
+              <div class="mb-0 d-block" style="width: 100px">Sort By:</div>
+              <select name="" id="" class="form-control form-select">
+                <option value="manual">Featured</option>
+                <option value="best-selling" selected="selected">
+                  Best Selling
+                </option>
+                <option value="title-ascending">Alphabetically, A-Z</option>
+                <option value="title-descending">Alphabetically, Z-A</option>
+                <option value="price-ascending">Price, low to high</option>
+                <option value="price-descending">Price. high to low</option>
+                <option value="created-ascending">Date, old to new</option>
+                <option value="created-descending">Date. new to old</option>
+              </select>
+            </div>
+            <div class="d-flex align-items-center gap-10">
+              <div class="totalproducts mb-0">21 Products</div>
+              <div class="d-flex gap-10 align-items-center grid">
+                <img
+                  (click)="onGridChanged(3)"
+                  src="../../../../../assets/images/gr4.svg"
+                  alt="grid"
+                  class="d-block img-fluid"
+                />
+                <img
+                  (click)="onGridChanged(4)"
+                  src="../../../../../assets/images/gr2.svg"
+                  alt="grid"
+                  class="d-block img-fluid"
+                />
+                <img
+                  (click)="onGridChanged(6)"
+                  src="../../../../../assets/images/gr3.svg"
+                  alt="grid"
+                  class="d-block img-fluid"
+                />
+
+                <img
+                  (click)="onGridChanged(12)"
+                  src="../../../../../assets/images/gr.svg"
+                  alt="grid"
+                  class="d-block img-fluid"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="products-list pb-5">
+          <app-product-card
+            class="row"
+            [products]="products"
+            [grid]="grid"
+          ></app-product-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

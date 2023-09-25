@@ -1,0 +1,53 @@
+<app-bread-crumb [title]="title"></app-bread-crumb>
+<div class="login-wrapper py-5 home-wrapper-2">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <div class="auth-card">
+          <h3 class="text-center mb-3">Login</h3>
+          <form
+            [formGroup]="signinForm"
+            (ngSubmit)="loginUser()"
+            class="d-flex flex-column gap-15"
+          >
+            <div>
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                class="form-control"
+                formControlName="email"
+                required
+              />
+            </div>
+            <div class="mt-1">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                class="form-control"
+                formControlName="password"
+                required
+              />
+            </div>
+            <div>
+              <a [routerLink]="['/console/forgot-password']"
+                >Forgot Password?</a
+              >
+              <div
+                class="d-flex justify-content-center gap-15 align-items-center"
+              >
+                <button class="button border-0" [disabled]="!signinForm.valid">
+                  Login
+                </button>
+                <a [routerLink]="['/console/signup']" class="button signup"
+                  >Signup</a
+                >
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

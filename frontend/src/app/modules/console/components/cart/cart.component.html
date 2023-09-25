@@ -1,0 +1,59 @@
+<app-bread-crumb [title]="title"></app-bread-crumb>
+<section class="cart-wrapper home-wrapper-2 py-5">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <div
+          class="cart-header py-3 d-flex justify-content-between align-items-center"
+        >
+          <h4 class="cart-col-1">Product</h4>
+          <h4 class="cart-col-2">Price</h4>
+          <h4 class="cart-col-3">Quantity</h4>
+          <h4 class="cart-col-4">Total</h4>
+        </div>
+        <div
+          class="cart-data py-3 mb-2 d-flex justify-content-between align-items-center"
+        >
+          <div class="cart-col-1 gap-15 d-flex align-items-center">
+            <div class="w-25">
+              <img
+                src="../../../../../assets/images/watch.jpg"
+                class="img-fluid"
+                alt=""
+              />
+            </div>
+            <div class="w-75">
+              <h5>GDffdhg</h5>
+              <p>hgf</p>
+              <p>gfd</p>
+            </div>
+          </div>
+          <div class="cart-col-2">
+            <h5 class="price">$ 100</h5>
+          </div>
+          <div class="cart-col-3 d-flex align-items-center gap-15">
+            <div>
+              <input class="form-control" type="number" min="1" max="10" />
+            </div>
+            <div><i class="bi bi-trash text-danger"></i></div>
+          </div>
+          <div class="cart-col-4">
+            <h5 class="price">$ 100</h5>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 py-2 mt-4">
+        <div class="d-flex justify-content-between align-items-baseline">
+          <a routerLink="/console/product" class="button"
+            >Continue To Shopping
+          </a>
+          <div class="d-flex flex-column align-items-end">
+            <h4>SubTotal: $ 1000</h4>
+            <p>Taxes and shipping calculated at checkout</p>
+            <a routerLink="/console/checkout" class="button">Checkout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

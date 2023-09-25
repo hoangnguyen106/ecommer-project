@@ -1,0 +1,5 @@
+<div *ngIf="colorProduct" class="d-flex">
+  <ul class="colors ps-0" *ngFor="let colorPro of colorProduct">
+    <li [ngStyle]="{ backgroundColor: colorPro.title }"></li>
+  </ul>
+</div>

@@ -1,0 +1,285 @@
+<app-bread-crumb [title]="title"></app-bread-crumb>
+<div class="main-product-wrapper py-5 home-wrapper-2" *ngIf="singlePageProduct">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-6" *ngFor="let image of singlePageProduct.images">
+        <div class="main-product-image">
+          <div>
+            <lib-ngx-image-zoom
+              [thumbImage]="image.url"
+              [fullImage]="image.url"
+              [magnification]="1"
+              [enableLens]="true"
+              [lensWidth]="200"
+              [lensHeight]="200"
+            ></lib-ngx-image-zoom>
+          </div>
+        </div>
+        <div class="other-product-images d-flex flex-wrap gap-15">
+          <div>
+            <img
+              src="https://wittlock.github.io/ngx-image-zoom/assets/thumb.jpg"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://wittlock.github.io/ngx-image-zoom/assets/thumb.jpg"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://wittlock.github.io/ngx-image-zoom/assets/thumb.jpg"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+          <div>
+            <img
+              src="https://wittlock.github.io/ngx-image-zoom/assets/thumb.jpg"
+              class="img-fluid"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="main-product-details">
+          <div class="border-bottom">
+            <h3 class="title">
+              {{ singlePageProduct.title }}
+            </h3>
+          </div>
+          <div class="border-bottom py-3">
+            <p class="price">$ {{ singlePageProduct.price }}</p>
+            <div class="d-flex align-items-center gap-10">
+              <app-star-rating
+                [maxStars]="5"
+                [selectedValue]="singlePageProduct.totalrating"
+                (ratingChanged)="onRatingChanged($event)"
+              ></app-star-rating>
+              <p class="mb-0 t-review">( 2 Reviews )</p>
+            </div>
+            <a
+              class="review-btn"
+              [routerLink]="['/console/product/:id']"
+              fragment="reviews"
+              >Write a Review</a
+            >
+          </div>
+          <div class="py-3">
+            <div class="d-flex gap-10 align-items-center my-2">
+              <h3 class="product-heading">Type :</h3>
+              <p class="product-data">Watch</p>
+            </div>
+            <div class="d-flex gap-10 align-items-center my-2">
+              <h3 class="product-heading">Brand :</h3>
+              <p class="product-data">{{ singlePageProduct.brand }}</p>
+            </div>
+            <div class="d-flex gap-10 align-items-center my-2">
+              <h3 class="product-heading">Category :</h3>
+              <p class="product-data">{{ singlePageProduct.category }}</p>
+            </div>
+            <div class="d-flex gap-10 align-items-center my-2">
+              <h3 class="product-heading">Tags :</h3>
+              <p class="product-data">{{ singlePageProduct.tags }}</p>
+            </div>
+            <div class="d-flex gap-10 align-items-center my-2">
+              <h3 class="product-heading">Available :</h3>
+              <p class="product-data">In Stock</p>
+            </div>
+            <div class="d-flex gap-10 flex-column mt-2 mb-3">
+              <h3 class="product-heading">Size :</h3>
+              <div class="d-flex gap-10 gap-15">
+                <span
+                  class="badge border border-1 bg-white text-dark border-secondary"
+                  >S</span
+                >
+                <span
+                  class="badge border border-1 bg-white text-dark border-secondary"
+                  >M</span
+                >
+                <span
+                  class="badge border border-1 bg-white text-dark border-secondary"
+                  >XL</span
+                >
+
+                <span
+                  class="badge border border-1 bg-white text-dark border-secondary"
+                  >XXL</span
+                >
+              </div>
+            </div>
+            <div class="d-flex gap-10 flex-column mt-2 mb-3">
+              <h3 class="product-heading">Color :</h3>
+              <app-color [colorProduct]="singlePageProduct.color"></app-color>
+            </div>
+            <div class="d-flex align-items-center gap-10 flex-row mt-2">
+              <h3 class="product-heading">Quantity :</h3>
+              <div class="">
+                <input
+                  type="number"
+                  name=""
+                  style="width: 70px"
+                  class="form-control"
+                  min="1"
+                  max="10"
+                  id=""
+                />
+              </div>
+              <div class="d-flex align-items-center gap-30 ms-5">
+                <button class="button border-0">Add To Cart</button>
+                <button class="button signup">Buy It Now</button>
+              </div>
+            </div>
+            <div class="d-flex align-items-center gap-15">
+              <div>
+                <a href=""
+                  ><i class="bi bi-slack fs-5 me-2"></i> Add to Compare</a
+                >
+              </div>
+              <div>
+                <a href=""
+                  ><i class="bi bi-suit-heart fs-5 me-2"></i>Add to Wishlist</a
+                >
+              </div>
+            </div>
+
+            <div class="d-flex gap-10 flex-column my-3">
+              <h3 class="product-heading">Shipping & Returns :</h3>
+              <p class="product-data">
+                Free shipping and returns available on all orders! <br />
+                We ship all US domestic orders within <b>5-10 business days!</b>
+              </p>
+            </div>
+            <div class="d-flex gap-10 align-items-center my-2">
+              <h3 class="product-heading">Product Link :</h3>
+              <p class="product-data">
+                <a href="javascript:void(0)" (click)="copyLinkToClipboard()"
+                  >Copy Link Product</a
+                >
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="description-wrapper py-5 home-wrapper-2" *ngIf="singlePageProduct">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <h4>Description</h4>
+        <div class="bg-white p-3">
+          <p>
+            {{ singlePageProduct.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<section class="review-wrapper home-wrapper-2" *ngIf="singlePageProduct">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <h3 id="reviews">Reviews</h3>
+        <div class="review-inner-wrapper">
+          <div
+            class="review-head d-flex justify-content-between align-items-end"
+          >
+            <div>
+              <h4 class="mb-2">Customer Reviews</h4>
+              <div class="d-flex align-items-center gap-10">
+                <app-star-rating
+                  [maxStars]="5"
+                  [selectedValue]="selectedRating"
+                  (ratingChanged)="onRatingChanged($event)"
+                ></app-star-rating>
+                <p class="mb-0">Based pon 2 Reviews</p>
+              </div>
+            </div>
+            <div *ngIf="review === 0; else noReview">
+              <div>
+                <a class="text-dark text-decoration-underline"
+                  >Write a reviews</a
+                >
+              </div>
+            </div>
+            <ng-template #noReview>
+              {{ review }}
+            </ng-template>
+          </div>
+          <div class="review-form py-4">
+            <h4>Write a Review</h4>
+            <form action="" class="d-flex flex-column gap-15">
+              <div>
+                <app-star-rating
+                  [maxStars]="5"
+                  [selectedValue]="selectedRating"
+                  (ratingChanged)="onRatingChanged($event)"
+                ></app-star-rating>
+              </div>
+              <div>
+                <textarea
+                  placeholder="Comments"
+                  name=""
+                  id=""
+                  class="w-100 form-control"
+                  cols="30"
+                  rows="10"
+                ></textarea>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button class="button border-0">Submit Review</button>
+              </div>
+            </form>
+          </div>
+          <div class="reviews mt-3">
+            <div class="review">
+              <div class="d-flex gap-10 align-items-center">
+                <h6 class="mb-0">Navdeep</h6>
+                <app-star-rating
+                  [maxStars]="5"
+                  [selectedValue]="selectedRating"
+                  (ratingChanged)="onRatingChanged($event)"
+                ></app-star-rating>
+              </div>
+              <p class="mt-3">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto
+                a consequuntur velit quidem vitae? Ad, suscipit commodi
+                molestias quasi, maiores vel, porro reprehenderit nemo repellat
+                quisquam quibusdam ratione reiciendis veritatis!
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="popular-wrapper py-5 home-wrapper-2" *ngIf="singlePageProduct">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="section-heading">Our Popular Products</h3>
+      </div>
+    </div>
+    <div class="row">
+      <!-- <div class="col-2">
+        <div class="card"></div>
+      </div>
+      <div class="col-2">
+        <div class="card"></div>
+      </div> -->
+      <div class="d-flex">
+        <app-product-card></app-product-card>
+        <app-product-card></app-product-card>
+      </div>
+    </div>
+  </div>
+</section>

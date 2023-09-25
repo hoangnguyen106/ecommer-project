@@ -1,0 +1,53 @@
+<div class="col-6" *ngFor="let specialProduct of specialProducts">
+  <div class="special-product-card mb-3">
+    <div class="d-flex justify-content-between">
+      <div>
+        <img src="../../../../../assets/images/watch.jpg" alt="watch" />
+      </div>
+      <div class="special-product-content" style="margin-right: 4%">
+        <h5 class="brand">{{ specialProduct.brand }}</h5>
+        <h6 class="title">{{ specialProduct.title }}</h6>
+        <app-star-rating
+          [maxStars]="5"
+          [selectedValue]="specialProduct.totalRating"
+          (ratingChanged)="onRatingChanged($event)"
+        ></app-star-rating>
+        <p class="price">
+          <span class="red-p">$ {{ specialProduct.price }}</span
+          >&nbsp;
+          <!-- <s>$ 200</s> -->
+        </p>
+        <div class="discount-till d-flex align-items-center gap-10">
+          <p class="mb-0"><b>5 </b>days</p>
+          <div class="d-flex gap-10 align-items-center">
+            <span class="badge rounded-circle p-2 bg-danger">1</span>
+            <span class="badge rounded-circle p-2 bg-danger">1</span>
+            <span class="badge rounded-circle p-2 bg-danger">1</span>
+          </div>
+        </div>
+        <div class="prod-count my-3">
+          <p>Product: {{ specialProduct.quantity }}</p>
+          <div class="progress">
+            <div
+              class="progress-bar"
+              role="progressbar"
+              [ngStyle]="{
+                width:
+                  (specialProduct.quantity /
+                    (specialProduct.quantity + specialProduct.sold)) *
+                    100 +
+                  '%'
+              }"
+              aria-valuenow="specialProduct.quantity / (specialProduct.quantity + specialProduct.sold) * 100"
+              aria-valuemin="specialProduct.quantity"
+              aria-valuemax="specialProduct.sold + specialProduct.quantity"
+            ></div>
+          </div>
+        </div>
+        <a routerLink="/console/product/{{ specialProduct._id }}" class="button"
+          >View</a
+        >
+      </div>
+    </div>
+  </div>
+</div>

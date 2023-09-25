@@ -1,0 +1,369 @@
+<section class="home-wrapper-1 py-5">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-6">
+        <div class="main-banner position-relative">
+          <img
+            src="../../../../../assets/images/main-banner-1.jpg"
+            alt="main banner"
+            class="img-fluid rounded-3"
+          />
+          <div class="main-banner-content position-absolute">
+            <h4>SUPERCHARGED FOR PROS.</h4>
+            <h5>iPad S15+ Pro</h5>
+            <p>From $999.00 or $41.62/month.</p>
+            <a href="" class="button">BUY NOW</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+        <div
+          class="d-flex flex-wrap gap-10 justify-content-between align-items-center"
+        >
+          <div class="small-banner position-relative">
+            <img
+              src="../../../../../assets/images/catbanner-01.jpg"
+              alt="main banner"
+              class="img-fluid rounded-3"
+            />
+            <div class="small-banner-content position-absolute">
+              <h4>BEST SELLER</h4>
+              <h5>iPad S15+ Pro</h5>
+              <p>
+                From $999.00 <br />
+                or $41.62/month.
+              </p>
+            </div>
+          </div>
+          <div class="small-banner position-relative">
+            <img
+              src="../../../../../assets/images/catbanner-02.jpg"
+              alt="main banner"
+              class="img-fluid rounded-3"
+            />
+            <div class="small-banner-content position-absolute">
+              <h4>NEW ARRIVAL</h4>
+              <h5>But IPad Air</h5>
+              <p>
+                From $999.00 <br />
+                or $41.62/month.
+              </p>
+            </div>
+          </div>
+          <div class="small-banner position-relative">
+            <img
+              src="../../../../../assets/images/catbanner-03.jpg"
+              alt="main banner"
+              class="img-fluid rounded-3"
+            />
+            <div class="small-banner-content position-absolute">
+              <h4>NEW ARRIVAL</h4>
+              <h5>But IPad Air</h5>
+              <p>
+                From $999.00 <br />
+                or $41.62/month.
+              </p>
+            </div>
+          </div>
+          <div class="small-banner position-relative">
+            <img
+              src="../../../../../assets/images/catbanner-04.jpg"
+              alt="main banner"
+              class="img-fluid rounded-3"
+            />
+            <div class="small-banner-content position-absolute">
+              <h4>NEW ARRIVAL</h4>
+              <h5>But IPad Air</h5>
+              <p>
+                From $999.00 <br />
+                or $41.62/month.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="home-wrapper-2 py-5">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <div class="services d-flex align-items-center justify-content-between">
+          <div
+            *ngFor="let item of services"
+            class="d-flex align-items-center gap-10"
+          >
+            <img src="{{ item.image }}" alt="services" />
+            <div>
+              <h6>{{ item.title }}</h6>
+              <p class="mb-0">{{ item.tagline }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="home-wrapper-3 py-5">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <div
+          class="categories d-flex justify-content-between flex-wrap align-items-center"
+        >
+          <div class="d-flex align-items-center">
+            <div>
+              <h6>Cameras</h6>
+              <p>10 Items</p>
+            </div>
+            <img src="../../../../../assets/images/camera.jpg" alt="camera" />
+          </div>
+          <div class="d-flex align-items-center">
+            <div>
+              <h6>Smart TV</h6>
+              <p>10 Items</p>
+            </div>
+            <img src="../../../../../assets/images/tv.jpg" alt="camera" />
+          </div>
+          <div class="d-flex align-items-center">
+            <div>
+              <h6>Smart Watches</h6>
+              <p>10 Items</p>
+            </div>
+            <img src="../../../../../assets/images/camera.jpg" alt="camera" />
+          </div>
+          <div class="d-flex align-items-center">
+            <div>
+              <h6>Music & Gaming</h6>
+              <p>10 Items</p>
+            </div>
+            <img
+              src="../../../../../assets/images/headphone.jpg"
+              alt="camera"
+            />
+          </div>
+          <div class="d-flex align-items-center">
+            <div>
+              <h6>Cameras</h6>
+              <p>10 Items</p>
+            </div>
+            <img src="../../../../../assets/images/camera.jpg" alt="camera" />
+          </div>
+          <div class="d-flex align-items-center">
+            <div>
+              <h6>Smart TV</h6>
+              <p>10 Items</p>
+            </div>
+            <img src="../../../../../assets/images/tv.jpg" alt="camera" />
+          </div>
+          <div class="d-flex align-items-center">
+            <div>
+              <h6>Smart Watches</h6>
+              <p>10 Items</p>
+            </div>
+            <img src="../../../../../assets/images/camera.jpg" alt="camera" />
+          </div>
+          <div class="d-flex align-items-center">
+            <div>
+              <h6>Music & Gaming</h6>
+              <p>10 Items</p>
+            </div>
+            <img
+              src="../../../../../assets/images/headphone.jpg"
+              alt="camera"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="featured-wrapper py-5 home-wrapper-2">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="section-heading">Featured Collections</h3>
+      </div>
+      <app-product-card [products]="products" class="row"></app-product-card>
+    </div>
+  </div>
+</section>
+<section class="famous-wrapper py-5 home-wrapper-2">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-3">
+        <div class="famous-card position-relative">
+          <img
+            src="../../../../../assets/images/apple-watch.jpg"
+            class="img-fluid"
+            alt=""
+          />
+          <div class="famous-content position-absolute">
+            <h5>Big Screen</h5>
+            <h6>Smart Watch Series 7</h6>
+            <p>From $399 or $16.62/mo. for 24 mo .*</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="famous-card position-relative">
+          <img
+            src="../../../../../assets/images/macbook-1.jpg"
+            class="img-fluid"
+            alt=""
+          />
+          <div class="famous-content position-absolute">
+            <h5>Studio Display</h5>
+            <h6>600 nits of brightness.</h6>
+            <p>27-inch 5K Retina display</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="famous-card position-relative">
+          <img
+            src="../../../../../assets/images/ip14prm.jpg"
+            class="img-fluid"
+            alt=""
+          />
+          <div class="famous-content position-absolute">
+            <h5>smartphones</h5>
+            <h6>Smartphone 14 Pro</h6>
+            <p>Now in Green. From $999.00 or $41.62/mo. for 24 mo. Footnote*</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="famous-card position-relative">
+          <img
+            src="../../../../../assets/images/speakerjbl.jpg"
+            class="img-fluid"
+            alt=""
+          />
+          <div class="famous-content position-absolute" style="color: black">
+            <h5 class="text-dark">home speaker</h5>
+            <h6>Room-filling sound.</h6>
+            <p>From $699 or $116.58/mo. for 12 mo.*</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="special-wrapper py-5 home-wrapper-2">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="section-heading">Special Products</h3>
+      </div>
+      <app-special-product
+        class="row"
+        [specialProducts]="products"
+      ></app-special-product>
+    </div>
+  </div>
+</section>
+<section class="popular-wrapper py-5 home-wrapper-2">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="section-heading">Our Popular Products</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="d-flex">
+        <app-product-card [products]="products" class="row"></app-product-card>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="marquee-wrapper py-5">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <div class="marquee-inner-wrapper card-wrapper">
+          <marquee
+            direction="left"
+            style="font-family: Calibri, sans-serif; color: black"
+            scrolldelay="50"
+            behavior="loop"
+            class="d-flex"
+          >
+            <div class="d-flex">
+              <div class="mx-4 w-25">
+                <img
+                  src="../../../../../assets/images/brand-01.png"
+                  alt="brand"
+                />
+              </div>
+              <div class="mx-4 w-25">
+                <img
+                  src="../../../../../assets/images/brand-02.png"
+                  alt="brand"
+                />
+              </div>
+              <div class="mx-4 w-25">
+                <img
+                  src="../../../../../assets/images/brand-03.png"
+                  alt="brand"
+                />
+              </div>
+              <div class="mx-4 w-25">
+                <img
+                  src="../../../../../assets/images/brand-04.png"
+                  alt="brand"
+                />
+              </div>
+              <div class="mx-4 w-25">
+                <img
+                  src="../../../../../assets/images/brand-05.png"
+                  alt="brand"
+                />
+              </div>
+              <div class="mx-4 w-25">
+                <img
+                  src="../../../../../assets/images/brand-06.png"
+                  alt="brand"
+                />
+              </div>
+              <div class="mx-4 w-25">
+                <img
+                  src="../../../../../assets/images/brand-07.png"
+                  alt="brand"
+                />
+              </div>
+              <div class="mx-4 w-25">
+                <img
+                  src="../../../../../assets/images/brand-08.png"
+                  alt="brand"
+                />
+              </div>
+            </div>
+          </marquee>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="blog-wrapper py-5 home-wrapper-2">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-12">
+        <h3 class="section-heading">Our Lastest Blogs</h3>
+      </div>
+      <div class="col-3">
+        <app-blog-card></app-blog-card>
+      </div>
+      <div class="col-3">
+        <app-blog-card></app-blog-card>
+      </div>
+      <div class="col-3">
+        <app-blog-card></app-blog-card>
+      </div>
+      <div class="col-3">
+        <app-blog-card></app-blog-card>
+      </div>
+    </div>
+  </div>
+</section>
