@@ -1,5 +1,5 @@
 <app-bread-crumb [title]="title"></app-bread-crumb>
-<section class="cart-wrapper home-wrapper-2 py-5">
+<section class="cart-wrapper home-wrapper-2 py-5" *ngIf="productDetail">
   <div class="container-xxl">
     <div class="row">
       <div class="col-12">
@@ -13,6 +13,7 @@
         </div>
         <div
           class="cart-data py-3 mb-2 d-flex justify-content-between align-items-center"
+          *ngFor="let proDetail of productDetail"
         >
           <div class="cart-col-1 gap-15 d-flex align-items-center">
             <div class="w-25">
@@ -23,22 +24,40 @@
               />
             </div>
             <div class="w-75">
-              <h5>GDffdhg</h5>
-              <p>hgf</p>
-              <p>gfd</p>
+              <p>{{ proDetail.productId.title }}</p>
+              <div class="d-flex gap-3">
+                Color:
+                <ul class="colors ps-0">
+                  <li
+                    [ngStyle]="{ backgroundColor: proDetail.color.title }"
+                  ></li>
+                </ul>
+              </div>
             </div>
           </div>
           <div class="cart-col-2">
-            <h5 class="price">$ 100</h5>
+            <h5 class="price">$ {{ proDetail.price }}</h5>
           </div>
           <div class="cart-col-3 d-flex align-items-center gap-15">
             <div>
-              <input class="form-control" type="number" min="1" max="10" />
+              <input
+                class="form-control"
+                type="number"
+                min="1"
+                max="100"
+                [(ngModel)]="proDetail.quantity"
+                (change)="updateProductFromCart(proDetail)"
+              />
             </div>
-            <div><i class="bi bi-trash text-danger"></i></div>
+            <div>
+              <i
+                class="bi bi-trash text-danger"
+                (click)="deleteProductFromCart(proDetail._id)"
+              ></i>
+            </div>
           </div>
           <div class="cart-col-4">
-            <h5 class="price">$ 100</h5>
+            <h5 class="price">$ {{ proDetail.price * proDetail.quantity }}</h5>
           </div>
         </div>
       </div>

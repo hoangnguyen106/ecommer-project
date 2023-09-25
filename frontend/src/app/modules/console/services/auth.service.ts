@@ -3,6 +3,8 @@ import { User } from '../models/user';
 import { authUrl } from './../../shared/utils/url';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { headers } from '../../shared/utils/token';
+import { Cart } from '../models/cart';
 
 @Injectable({
   providedIn: 'root',
@@ -26,6 +28,28 @@ export class AuthService {
 
   // Thêm vào giỏ hàng
   addToCart(data: any) {
-    return this.http.post<any>(`${authUrl}/cart`, data);
+    return this.http.post<Cart>(`${authUrl}/cart`, data, { headers: headers });
+  }
+
+  // Lấy ra thông tin giỏ hàng
+  getCart() {
+    return this.http.get(`${authUrl}/cart`, { headers: headers });
+  }
+
+  // Xóa product khỏi giỏ hàng
+  deleteProductFromCart(id: any) {
+    return this.http.delete(`${authUrl}/delete-product-card/${id}`, {
+      headers: headers,
+    });
+    // Cập nhật quantity trong giỏ hàng
+  }
+  updateProductFromCart(cartDetail: any) {
+    return this.http.put(
+      `${authUrl}/update-product-card/${cartDetail._id}/${cartDetail.quantity}`,
+      cartDetail,
+      {
+        headers: headers,
+      }
+    );
   }
 }

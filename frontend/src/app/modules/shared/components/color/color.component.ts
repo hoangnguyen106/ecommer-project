@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-color',
@@ -7,8 +7,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ColorComponent implements OnInit {
   @Input() colorProduct: any;
-
+  @Output() idColor = new EventEmitter<any>();
   ngOnInit(): void {
     console.log(this.colorProduct);
+  }
+
+  getIdColor(id: any) {
+    const dataID = id;
+    this.idColor.emit(dataID);
   }
 }

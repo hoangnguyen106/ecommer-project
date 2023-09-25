@@ -1,5 +1,8 @@
 <div *ngIf="colorProduct" class="d-flex">
   <ul class="colors ps-0" *ngFor="let colorPro of colorProduct">
-    <li [ngStyle]="{ backgroundColor: colorPro.title }"></li>
+    <li
+      [ngStyle]="{ backgroundColor: colorPro.title }"
+      (click)="getIdColor(colorPro._id)"
+    ></li>
   </ul>
 </div>

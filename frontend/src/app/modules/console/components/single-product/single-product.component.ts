@@ -9,6 +9,9 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { AuthService } from '../../services/auth.service';
+import { Cart } from '../../models/cart';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-single-product',
@@ -20,6 +23,8 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
   review = 0;
   id: any;
   singlePageProduct: any;
+  addToCart: FormGroup;
+  colorPro: any;
 
   myThumbnail = 'https://wittlock.github.io/ngx-image-zoom/assets/thumb.jpg';
   myFullresImage =
@@ -37,8 +42,17 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private elementRef: ElementRef,
-    private clipboardService: ClipboardService
-  ) {}
+    private clipboardService: ClipboardService,
+    private fb: FormBuilder,
+    private toastrService: ToastrService
+  ) {
+    this.addToCart = this.fb.group({
+      productId: [''],
+      color: ['', Validators.required],
+      price: [''],
+      quantity: ['', Validators.required],
+    });
+  }
 
   ngOnInit(): void {
     this.loadSinglePage();
@@ -68,12 +82,33 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
     this.productService.getProductById(this.id).subscribe({
       next: (res) => {
         this.singlePageProduct = res;
+        this.addToCart.patchValue({
+          productId: this.singlePageProduct._id,
+          price: this.singlePageProduct.price,
+        });
       },
     });
   }
 
+  // Lấy id color
+  getColorId(data: string) {
+    this.colorPro = data;
+    this.addToCart.patchValue({
+      color: this.colorPro,
+    });
+    console.log(this.colorPro);
+  }
+
   // Thêm vào giỏ hàng
   uploadCart() {
-    this.authService.addToCart(this.singlePageProduct).subscribe((res) => {});
+    this.authService.addToCart(this.addToCart.value).subscribe({
+      next: (res) => {
+        this.toastrService.success('Add cart successfully !!!');
+        console.log(res);
+      },
+      error: (err) => {
+        this.toastrService.error('Please choose color and quantity !!!');
+      },
+    });
   }
 }
