@@ -43,4 +43,11 @@ export class CartComponent implements OnInit {
       console.log(res);
     });
   }
+  // total sub
+  calculateTotalPrice(): number {
+    return this.productDetail.reduce(
+      (total: number, item: any) => total + item.price * item.quantity,
+      0
+    );
+  }
 }

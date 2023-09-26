@@ -13,7 +13,7 @@
     </div>
   </div>
 </header>
-<header class="header-upper py-3">
+<header class="header-upper py-3" *ngIf="productDetail">
   <div class="container-xxl">
     <div class="row align-items-center">
       <div class="col-2">
@@ -82,8 +82,10 @@
             >
               <i class="bi bi-cart icons-style" style="font-size: 35px"></i>
               <div class="d-flex flex-column gap-10">
-                <span class="badge bg-white text-dark">0</span>
-                <p class="mb-0">$ 5000</p>
+                <span class="badge bg-white text-dark">{{
+                  productDetail.length
+                }}</span>
+                <p class="mb-0">$ {{ calculateTotalPrice() }}</p>
               </div>
             </a>
           </div>

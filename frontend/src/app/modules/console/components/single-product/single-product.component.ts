@@ -104,6 +104,7 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
     this.authService.addToCart(this.addToCart.value).subscribe({
       next: (res) => {
         this.toastrService.success('Add cart successfully !!!');
+        this.router.navigate(['/console/cart']);
         console.log(res);
       },
       error: (err) => {
