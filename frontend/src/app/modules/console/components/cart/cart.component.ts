@@ -10,7 +10,7 @@ import { ToastrService } from 'ngx-toastr';
 export class CartComponent implements OnInit {
   title = 'Cart';
 
-  productDetail!: any;
+  productDetail: any = 0;
 
   constructor(
     private authService: AuthService,

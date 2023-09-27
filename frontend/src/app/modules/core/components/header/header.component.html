@@ -13,7 +13,7 @@
     </div>
   </div>
 </header>
-<header class="header-upper py-3" *ngIf="productDetail">
+<header class="header-upper py-3">
   <div class="container-xxl">
     <div class="row align-items-center">
       <div class="col-2">
@@ -69,10 +69,13 @@
               class="d-flex align-items-center gap-10 text-white"
             >
               <i class="bi bi-person" style="font-size: 35px"></i>
-              <p class="mb-0">
-                Login <br />
-                My Account
-              </p>
+              <div *ngIf="productDetail; else loginad">Welcome</div>
+              <ng-template #loginad>
+                <p class="mb-0">
+                  Login <br />
+                  My Account
+                </p></ng-template
+              >
             </a>
           </div>
           <div>
@@ -83,9 +86,11 @@
               <i class="bi bi-cart icons-style" style="font-size: 35px"></i>
               <div class="d-flex flex-column gap-10">
                 <span class="badge bg-white text-dark">{{
-                  productDetail.length
+                  productDetail ? productDetail.length : 0
                 }}</span>
-                <p class="mb-0">$ {{ calculateTotalPrice() }}</p>
+                <p class="mb-0">
+                  $ {{ productDetail ? calculateTotalPrice() : 0 }}
+                </p>
               </div>
             </a>
           </div>

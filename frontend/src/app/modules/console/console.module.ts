@@ -35,6 +35,7 @@ import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductService } from './services/product.service';
 import { BlogService } from './services/blog.service';
 import { ContactService } from './services/contact.service';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,12 @@ import { ContactService } from './services/contact.service';
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   exports: [RouterModule],
-  providers: [AuthService, ProductService, BlogService, ContactService],
+  providers: [
+    AuthGuard,
+    AuthService,
+    ProductService,
+    BlogService,
+    ContactService,
+  ],
 })
 export class ConsoleModule {}

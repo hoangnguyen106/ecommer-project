@@ -16,6 +16,16 @@ export class AuthService {
     return this.http.post<any>(`${authUrl}/login`, user);
   }
 
+  // Check loggin
+  get isLoggedIn(): boolean {
+    const authToken = localStorage.getItem('token');
+    if (authToken == null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   // Đăng ký
   signUp(user: User): Observable<any> {
     return this.http.post(`${authUrl}/register`, user);
@@ -51,5 +61,11 @@ export class AuthService {
         headers: headers,
       }
     );
+  }
+
+  createCheckoutInf(data: any) {
+    return this.http.post(`${authUrl}/cart/create-order`, data, {
+      headers: headers,
+    });
   }
 }

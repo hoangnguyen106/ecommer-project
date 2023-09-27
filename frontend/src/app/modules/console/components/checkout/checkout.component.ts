@@ -28,14 +28,14 @@ export class CheckoutComponent {
           Validators.pattern(REGEXP_NAME),
         ]),
       ],
-      firstname: [
+      firstName: [
         '',
         Validators.compose([
           Validators.required,
           Validators.pattern(REGEXP_NAME),
         ]),
       ],
-      lastname: [
+      lastName: [
         '',
         Validators.compose([
           Validators.required,
@@ -99,7 +99,11 @@ export class CheckoutComponent {
   }
 
   // Thêm vào địa chỉ shipping
-  registerUser() {
-    
+  shippingAddress() {
+    this.authService
+      .createCheckoutInf(this.shippingForm.value)
+      .subscribe((res) => {
+        console.log(res);
+      });
   }
 }

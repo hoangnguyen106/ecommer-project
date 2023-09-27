@@ -31,11 +31,17 @@
           <p class="user-details">Hoang Dev (nguyenhoangnhom4@gmail.com)</p>
           <h4 class="mb-3">Shipping Address</h4>
           <form
-            action=""
+            (ngSubmit)="shippingAddress()"
+            [formGroup]="shippingForm"
             class="d-flex flex-wrap gap-15 justify-content-between"
           >
             <div class="w-100">
-              <select class="form-control form-select" name="" id="">
+              <select
+                class="form-control form-select"
+                name=""
+                id=""
+                formControlName="country"
+              >
                 <option value="" selected disabled>Select Country</option>
                 <option value="VietNam">Vietnamese</option>
               </select>
@@ -45,31 +51,59 @@
                 type="text"
                 placeholder="First Name"
                 class="form-control"
+                formControlName="firstName"
               />
             </div>
             <div class="flex-grow-1">
-              <input type="text" placeholder="Last Name" class="form-control" />
+              <input
+                type="text"
+                placeholder="Last Name"
+                class="form-control"
+                formControlName="lastName"
+              />
             </div>
             <div class="w-100">
-              <input type="text" placeholder="Address" class="form-control" />
+              <input
+                type="text"
+                placeholder="Address"
+                class="form-control"
+                formControlName="address"
+              />
             </div>
             <div class="w-100">
               <input
                 type="text"
                 placeholder="Apartment, Suite, etc"
                 class="form-control"
+                formControlName="other"
               />
             </div>
             <div class="flex-grow-1">
-              <input type="text" placeholder="City" class="form-control" />
+              <input
+                type="text"
+                placeholder="City"
+                class="form-control"
+                formControlName="city"
+              />
             </div>
             <div class="flex-grow-1">
-              <select class="form-control form-select" name="" id="">
+              <select
+                class="form-control form-select"
+                name=""
+                id=""
+                formControlName="state"
+              >
                 <option value="" selected disabled>Select State</option>
+                <option value="state">Shipping</option>
               </select>
             </div>
             <div class="flex-grow-1">
-              <input type="text" placeholder="Zipcode" class="form-control" />
+              <input
+                type="text"
+                placeholder="Zipcode"
+                class="form-control"
+                formControlName="pincode"
+              />
             </div>
             <div class="w-100">
               <div class="d-flex justify-content-between align-items-center">

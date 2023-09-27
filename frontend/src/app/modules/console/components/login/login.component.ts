@@ -23,7 +23,7 @@ export class LoginComponent {
       password: ['', Validators.required],
     });
   }
-
+  // Đăng nhập tài khoản
   loginUser() {
     this.authService.siginIn(this.signinForm.value).subscribe({
       next: (res) => {
@@ -35,4 +35,6 @@ export class LoginComponent {
       error: (err) => {},
     });
   }
+
+  
 }

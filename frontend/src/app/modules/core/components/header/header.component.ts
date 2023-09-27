@@ -13,9 +13,9 @@ import { AuthService } from 'src/app/modules/console/services/auth.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  productDetail!: any;
-  constructor(private authService: AuthService) {}
+  productDetail: any = 0;
 
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.getAllCart();
@@ -24,7 +24,8 @@ export class HeaderComponent implements OnInit {
   getAllCart() {
     this.authService.getCart().subscribe((res) => {
       this.productDetail = res;
-      console.log(res);
+
+      console.log('=================> ', this.productDetail);
     });
   }
 

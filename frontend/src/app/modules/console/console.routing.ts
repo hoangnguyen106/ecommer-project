@@ -21,11 +21,13 @@ import { SingleProductComponent } from './components/single-product/single-produ
 import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
   {
     path: '',
     component: MainComponent,
+
     children: [
       {
         path: 'home',
@@ -68,10 +70,12 @@ const routes: Routes = [
       {
         path: 'cart',
         component: CartComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'checkout',
         component: CheckoutComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'compare-product',
@@ -80,6 +84,7 @@ const routes: Routes = [
       {
         path: 'wishlist',
         component: WishlistComponent,
+        canActivate: [AuthGuard],
       },
       {
         path: 'login',

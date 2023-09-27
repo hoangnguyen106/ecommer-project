@@ -427,6 +427,8 @@ const createOrder = asyncHandler(async (req, res) => {
   }
 });
 
+
+
 // const emptyCart = asyncHandler(async (req, res) => {
 //   const { _id } = req.user;
 //   validateMongoDbId(_id);
