@@ -22,6 +22,8 @@ import { CartComponent } from './components/cart/cart.component';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { PagenotfoundComponent } from './components/pagenotfound/pagenotfound.component';
 import { AuthGuard } from '../core/guards/auth.guard';
+import { OrderComponent } from './components/order/order.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 const routes: Routes = [
   {
@@ -70,6 +72,16 @@ const routes: Routes = [
       {
         path: 'cart',
         component: CartComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'my-orders',
+        component: OrderComponent,
+        canActivate: [AuthGuard],
+      },
+      {
+        path: 'my-profile',
+        component: ProfileComponent,
         canActivate: [AuthGuard],
       },
       {

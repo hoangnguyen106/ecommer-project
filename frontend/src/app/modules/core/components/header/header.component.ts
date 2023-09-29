@@ -15,7 +15,7 @@ import { AuthService } from 'src/app/modules/console/services/auth.service';
 export class HeaderComponent implements OnInit {
   productDetail: any = 0;
 
-  constructor(private authService: AuthService) {}
+  constructor(public authService: AuthService) {}
 
   ngOnInit(): void {
     this.getAllCart();
@@ -35,5 +35,10 @@ export class HeaderComponent implements OnInit {
       (total: number, item: any) => total + item.price * item.quantity,
       0
     );
+  }
+
+  handleLogout() {
+    localStorage.removeItem('token');
+    window.location.reload();
   }
 }

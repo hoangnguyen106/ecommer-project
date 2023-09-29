@@ -36,6 +36,8 @@ import { ProductService } from './services/product.service';
 import { BlogService } from './services/blog.service';
 import { ContactService } from './services/contact.service';
 import { AuthGuard } from '../core/guards/auth.guard';
+import { OrderComponent } from './components/order/order.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +63,8 @@ import { AuthGuard } from '../core/guards/auth.guard';
     CheckoutComponent,
     ContainerComponent,
     PagenotfoundComponent,
+    OrderComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,

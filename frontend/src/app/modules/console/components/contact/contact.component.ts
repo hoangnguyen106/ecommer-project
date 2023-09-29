@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ContactService } from '../../services/contact.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-contact',
@@ -12,7 +13,11 @@ export class ContactComponent {
 
   addContact: FormGroup;
 
-  constructor(private contactService: ContactService, public fb: FormBuilder) {
+  constructor(
+    private contactService: ContactService,
+    public fb: FormBuilder,
+    private toastrService: ToastrService
+  ) {
     this.addContact = this.fb.group({
       name: ['', Validators.required],
       email: ['', Validators.required],
@@ -23,6 +28,11 @@ export class ContactComponent {
 
   onAddContact() {
     this.contactService.addContact(this.addContact.value).subscribe((res) => {
+      this.addContact.reset();
+      this.toastrService.success(
+        'We will contact you as soon as.',
+        'Send contact successfully !!!'
+      );
       console.log(res);
     });
   }

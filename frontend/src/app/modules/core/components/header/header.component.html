@@ -65,8 +65,8 @@
           </div>
           <div>
             <a
-              routerLink="login"
               class="d-flex align-items-center gap-10 text-white"
+              [routerLink]="productDetail ? 'my-profile' : 'login'"
             >
               <i class="bi bi-person" style="font-size: 35px"></i>
               <div *ngIf="productDetail; else loginad">Welcome</div>
@@ -134,10 +134,20 @@
             <div class="d-flex align-items-center gap-15">
               <a routerLink="home">Home</a>
               <a routerLink="product">Our Store</a>
+              <a routerLink="my-orders">My Orders</a>
               <a routerLink="blogs">Blogs</a>
               <a routerLink="contact">Contact</a>
             </div>
           </div>
+          <button
+            *ngIf="this.authService.isLoggedIn"
+            (click)="handleLogout()"
+            class="border border-0 bg-transparent text-white text-uppercase"
+            type="button"
+            style="justify-content: end"
+          >
+            <i class="bi bi-box-arrow-left"></i> Logout
+          </button>
         </div>
       </div>
     </div>

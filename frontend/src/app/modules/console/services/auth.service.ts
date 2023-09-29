@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { headers } from '../../shared/utils/token';
 import { Cart } from '../models/cart';
+import { Profile } from '../models/profile';
 
 @Injectable({
   providedIn: 'root',
@@ -29,6 +30,11 @@ export class AuthService {
   // Đăng ký
   signUp(user: User): Observable<any> {
     return this.http.post(`${authUrl}/register`, user);
+  }
+
+  // Forgot password token
+  forgotPasswordToken(data: any) {
+    return this.http.post(`${authUrl}/forgot-password-token`, data);
   }
 
   // Lấy ra danh sách yêu thích
@@ -63,8 +69,21 @@ export class AuthService {
     );
   }
 
+  // Thêm thông tin user thanh toán
   createCheckoutInf(data: any) {
     return this.http.post(`${authUrl}/cart/create-order`, data, {
+      headers: headers,
+    });
+  }
+
+  // Lấy thông tin user đã order
+  getMyOrders() {
+    return this.http.get(`${authUrl}/getmyorders`, { headers: headers });
+  }
+
+  // Cập nhật thông tin tài khoản
+  updateProfile(user: User): Observable<User> {
+    return this.http.put<User>(`${authUrl}/edit-user`, user, {
       headers: headers,
     });
   }

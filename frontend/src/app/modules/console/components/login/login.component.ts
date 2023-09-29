@@ -28,13 +28,15 @@ export class LoginComponent {
     this.authService.siginIn(this.signinForm.value).subscribe({
       next: (res) => {
         console.log(res);
+        localStorage.setItem('user', JSON.stringify(res));
         localStorage.setItem('token', res.token);
         this.toastrService.success('Login successfully');
         this.router.navigate(['/console/home']);
+        setTimeout(() => {
+          window.location.reload();
+        }, 0);
       },
       error: (err) => {},
     });
   }
-
-  
 }
