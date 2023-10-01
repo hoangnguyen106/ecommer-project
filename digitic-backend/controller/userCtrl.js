@@ -292,7 +292,7 @@ const updatePassword = asyncHandler(async (req, res) => {
 
 const forgotPasswordToken = asyncHandler(async (req, res) => {
   const { email } = req.body;
-  const user = await User.findOne({ email });
+  const user = await User.findOne(email);
   if (!user) throw new Error("User not found with this email");
   try {
     const token = await user.createPasswordResetToken();

@@ -34,6 +34,7 @@ export class AuthService {
 
   // Forgot password token
   forgotPasswordToken(data: any) {
+    console.log(data);
     return this.http.post(`${authUrl}/forgot-password-token`, data);
   }
 
