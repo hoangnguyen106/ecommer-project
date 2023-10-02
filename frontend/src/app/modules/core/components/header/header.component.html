@@ -24,12 +24,12 @@
       <div class="col-5">
         <div class="input-group">
           <input
-            type="text"
-            class="form-control py-2"
-            placeholder="Search product here"
-            aria-label="Search product here"
-            aria-describedby="basic-addon2"
-          />
+          type="text"
+          [(ngModel)]="selectedItem"
+          [ngbTypeahead]="search"
+          placeholder="Search product"
+          class="form-control"
+        />
           <span class="input-group-text p-2" id="basic-addon2">
             <i class="bi bi-search fs-6"></i>
           </span>

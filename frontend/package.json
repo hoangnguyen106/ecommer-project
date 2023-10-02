@@ -22,6 +22,7 @@
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.5",
     "ng-marquee": "^9.5.0",
+    "ngx-bootstrap": "^11.0.2",
     "ngx-clipboard": "^16.0.0",
     "ngx-image-zoom": "^2.1.0",
     "ngx-toastr": "^16.0.1",

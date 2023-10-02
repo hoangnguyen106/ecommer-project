@@ -302,7 +302,7 @@ const forgotPasswordToken = asyncHandler(async (req, res) => {
       to: email,
       text: "Hey User",
       subject: "Forgot Password Link",
-      htm: resetURL,
+      html: resetURL,
     };
     sendEmail(data);
     res.json(token);
