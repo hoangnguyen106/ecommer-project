@@ -40,7 +40,7 @@ export class AuthService {
 
   // Lấy ra danh sách yêu thích
   getUserWishList() {
-    return this.http.get(`${authUrl}/wishlist`);
+    return this.http.get(`${authUrl}/wishlist`, { headers: headers });
   }
 
   // Thêm vào giỏ hàng

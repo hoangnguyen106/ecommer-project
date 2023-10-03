@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/modules/console/models/product';
 import { ProductService } from 'src/app/modules/console/services/product.service';
 
@@ -7,21 +7,24 @@ import { ProductService } from 'src/app/modules/console/services/product.service
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss'],
 })
-export class ProductCardComponent {
+export class ProductCardComponent implements OnInit {
   @Input() grid = 3;
   col: any;
   selectedRating: number = 3;
   @Input() products: any;
 
+  proId = JSON.parse(localStorage.getItem('user') || '{}');
+
   constructor(private productService: ProductService) {}
+  ngOnInit(): void {
+    console.log(this.products);
+  }
 
   // Thêm vào yêu thích
-  addToWishList(prodId: string) {
-    console.log(prodId);
-    this.productService.addToWishList(prodId).subscribe({
-      next: (res) => {
-        console.log(res);
-      },
+  addToWishList(prodId: any) {
+    console.log(this.proId._id);
+    this.productService.addToWishList(prodId).subscribe((res) => {
+      console.log(res);
     });
   }
 

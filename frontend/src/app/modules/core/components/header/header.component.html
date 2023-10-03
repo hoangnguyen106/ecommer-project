@@ -23,13 +23,15 @@
       </div>
       <div class="col-5">
         <div class="input-group">
+          <ng-template #tp>Hello </ng-template>
           <input
-          type="text"
-          [(ngModel)]="selectedItem"
-          [ngbTypeahead]="search"
-          placeholder="Search product"
-          class="form-control"
-        />
+            type="text"
+            [(ngModel)]="selectedItem"
+            [ngbTypeahead]="search"
+            placeholder="Search product"
+            class="form-control"
+            [resultTemplate]="tp"
+          />
           <span class="input-group-text p-2" id="basic-addon2">
             <i class="bi bi-search fs-6"></i>
           </span>

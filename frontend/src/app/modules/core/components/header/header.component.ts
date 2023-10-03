@@ -62,6 +62,8 @@ export class HeaderComponent implements OnInit {
       }),
       switchMap((term) => {
         // Implement your own search logic here (e.g., fetch data from an API)
+        console.log('term =>', term);
+
         const suggestions = this.searchSuggestion(term);
         return of(suggestions);
       })
@@ -70,11 +72,15 @@ export class HeaderComponent implements OnInit {
   private searchSuggestion(term: string): string[] {
     // Implement your suggestion logic (e.g., filter from a list)
     const suggestions: string[] = this.productDetail;
+    // let areaArr = suggestions.map((length) => {
+    //   console.log(length);
+    // });
+    // console.log(areaArr);
+
     console.log('suggestion =', suggestions);
 
-    return suggestions.filter((option) => {
-      console.log(option);
-      option.toLowerCase().includes(term.toLowerCase());
-    });
+    return suggestions.filter((filter) =>{
+      filter.toLowerCase.toString
+    })
   }
 }

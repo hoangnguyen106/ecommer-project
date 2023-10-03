@@ -1,7 +1,7 @@
 <div *ngFor="let product of products" class="col-{{ grid }}">
   <a class="product-card position-relative mb-3">
     <div class="wishlist-icon position-absolute">
-      <a (click)="addToWishList(product['_id'])"
+      <a (click)="addToWishList(product._id)"
         ><img src="../../../../../assets/images/wish.svg" alt=""
       /></a>
     </div>

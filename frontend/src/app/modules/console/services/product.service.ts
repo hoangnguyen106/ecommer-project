@@ -19,8 +19,12 @@ export class ProductService {
   }
 
   addToWishList(prodId: any) {
-    return this.http.put(`${productUrl}/wishlist`, prodId, {
-      headers: headers,
-    });
+    return this.http.put(
+      `${productUrl}/wishlist`,
+      { prodId },
+      {
+        headers: headers,
+      }
+    );
   }
 }
