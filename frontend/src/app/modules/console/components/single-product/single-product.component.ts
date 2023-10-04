@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
 import { Cart } from '../../models/cart';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-single-product',
@@ -23,6 +24,7 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
   review = 0;
   id: any;
   singlePageProduct: any;
+  products: Product[] = [];
   addToCart: FormGroup;
   colorPro: any;
 
@@ -56,6 +58,7 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     this.loadSinglePage();
+    this.loadProduct();
   }
 
   ngAfterViewInit() {
@@ -82,11 +85,19 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
     this.productService.getProductById(this.id).subscribe({
       next: (res) => {
         this.singlePageProduct = res;
+        console.log('singleproduct', res);
         this.addToCart.patchValue({
           productId: this.singlePageProduct._id,
           price: this.singlePageProduct.price,
         });
       },
+    });
+  }
+
+  loadProduct() {
+    this.productService.getAllProducts().subscribe((res) => {
+      this.products = res;
+      console.log(res);
     });
   }
 
@@ -110,6 +121,12 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
       error: (err) => {
         this.toastrService.error('Please choose color and quantity !!!');
       },
+    });
+  }
+
+  addRating(data: any) {
+    this.productService.rateProduct(data).subscribe((res) => {
+      
     });
   }
 }

@@ -27,4 +27,9 @@ export class ProductService {
       }
     );
   }
+  rateProduct(data: any) {
+    return this.http.put(`${productUrl}/rating`, data, {
+      headers: headers,
+    });
+  }
 }

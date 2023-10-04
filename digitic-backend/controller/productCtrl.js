@@ -137,6 +137,7 @@ const addToWishlist = asyncHandler(async (req, res) => {
 const rating = asyncHandler(async (req, res) => {
   const { _id } = req.user;
   const { star, prodId, comment } = req.body;
+  console.log(star, prodId, comment);
   try {
     const product = await Product.findById(prodId);
     let alreadyRated = product.ratings.find(

@@ -14,11 +14,11 @@ export class HomeComponent implements OnInit {
 
   constructor(private productService: ProductService) {}
   ngOnInit(): void {
-    this.loadProject();
+    this.loadProduct();
   }
 
   // Lấy tất cả sản phẩm
-  loadProject() {
+  loadProduct() {
     this.productService.getAllProducts().subscribe((res) => {
       this.products = res;
       console.log(res);

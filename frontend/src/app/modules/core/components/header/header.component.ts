@@ -79,8 +79,12 @@ export class HeaderComponent implements OnInit {
 
     console.log('suggestion =', suggestions);
 
-    return suggestions.filter((filter) =>{
-      filter.toLowerCase.toString
-    })
+    return suggestions.filter((filter) => {
+      console.log('this is filter: ', filter);
+
+      const test = filter;
+
+      test.includes(term.toLowerCase());
+    });
   }
 }
