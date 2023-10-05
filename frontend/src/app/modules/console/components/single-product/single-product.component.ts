@@ -9,10 +9,11 @@ import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
 import { AuthService } from '../../services/auth.service';
-import { Cart } from '../../models/cart';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Product } from '../../models/product';
+import { Rating } from '../../models/rating';
 
 @Component({
   selector: 'app-single-product',
@@ -26,6 +27,7 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
   singlePageProduct: any;
   products: Product[] = [];
   addToCart: FormGroup;
+  updateComment: FormGroup;
   colorPro: any;
 
   myThumbnail = 'https://wittlock.github.io/ngx-image-zoom/assets/thumb.jpg';
@@ -54,11 +56,22 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
       price: [''],
       quantity: ['', Validators.required],
     });
+
+    this.updateComment = this.fb.group({
+      star: ['', Validators.required],
+      comment: ['', Validators.required],
+      prodId: ['', Validators.required],
+    });
   }
 
   ngOnInit(): void {
     this.loadSinglePage();
     this.loadProduct();
+    this.updateComment = this.fb.group({
+      star: [5, Validators.required],
+      comment: ['', Validators.required],
+      prodId: [''],
+    });
   }
 
   ngAfterViewInit() {
@@ -97,7 +110,7 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
   loadProduct() {
     this.productService.getAllProducts().subscribe((res) => {
       this.products = res;
-      console.log(res);
+      console.log('product======>', res);
     });
   }
 
@@ -125,8 +138,18 @@ export class SingleProductComponent implements AfterViewInit, OnInit {
   }
 
   addRating(data: any) {
-    this.productService.rateProduct(data).subscribe((res) => {
-      
+    this.updateComment.patchValue({
+      star: this.selectedRating,
+      prodId: this.singlePageProduct._id,
     });
+    this.productService
+      .rateProduct(this.updateComment.value)
+      .subscribe((res) => {
+        this.loadSinglePage();
+        this.toastrService.success('Add rating successfully !!!');
+        this.updateComment.reset();
+
+        console.log(res);
+      });
   }
 }

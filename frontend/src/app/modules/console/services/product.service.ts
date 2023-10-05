@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 import { productUrl } from '../../shared/utils/url';
 import { headers } from '../../shared/utils/token';
+import { Rating } from '../models/rating';
 
 @Injectable({
   providedIn: 'root',
