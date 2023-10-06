@@ -4,6 +4,7 @@ export class Product {
   slug?: String;
   description?: String;
   price?: number;
+  category?: String;
   brand?: String;
   quantity?: number;
   sold?: number;

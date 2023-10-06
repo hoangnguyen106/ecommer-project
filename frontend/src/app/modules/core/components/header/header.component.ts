@@ -1,10 +1,4 @@
-import {
-  AfterContentChecked,
-  AfterViewChecked,
-  Component,
-  DoCheck,
-  OnInit,
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NgbTypeahead } from '@ng-bootstrap/ng-bootstrap';
 import {
   Observable,

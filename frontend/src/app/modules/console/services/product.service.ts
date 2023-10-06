@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 import { productUrl } from '../../shared/utils/url';
 import { headers } from '../../shared/utils/token';
-import { Rating } from '../models/rating';
 
 @Injectable({
   providedIn: 'root',
@@ -12,7 +11,11 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getAllProducts() {
-    return this.http.get<Product[]>(productUrl);
+    return this.http.get<Product[]>(`${productUrl}`);
+  }
+
+  filterProducts(data: any) {
+    return this.http.get(`${productUrl}/${data.brand}`);
   }
 
   getProductById(id: any) {

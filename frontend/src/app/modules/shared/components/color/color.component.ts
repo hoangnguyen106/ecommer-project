@@ -9,7 +9,7 @@ export class ColorComponent implements OnInit {
   @Input() colorProduct: any;
   @Output() idColor = new EventEmitter<any>();
   ngOnInit(): void {
-    console.log(this.colorProduct);
+    console.log('this is color', this.colorProduct);
   }
 
   getIdColor(id: any) {
