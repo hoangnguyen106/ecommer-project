@@ -20,7 +20,31 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h3 class="card-title">List Products</h3>
+            <button
+              type="button"
+              class="btn btn-primary"
+              (click)="addNewProject()"
+            >
+              Add Product
+            </button>
+            <div class="card-tools">
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="collapse"
+                title="Collapse"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+              <button
+                type="button"
+                class="btn btn-tool"
+                data-card-widget="remove"
+                title="Remove"
+              >
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
           </div>
           <!-- /.card-header -->
           <div class="card-body">
@@ -48,10 +72,17 @@
                     </div>
                   </td>
                   <td>{{ product.price }}</td>
-                  <td></td>
+                  <td class="d-flex">
+                    <a class="mr-2" style="cursor: pointer">
+                      <i class="far fa-edit"></i>
+                    </a>
+                    <a style="cursor: pointer">
+                      <i class="fas fa-trash"></i>
+                    </a>
+                  </td>
                 </tr>
               </tbody>
-              <tfoot>
+              <!-- <tfoot>
                 <tr>
                   <th>Rendering engine</th>
                   <th>Browser</th>
@@ -59,7 +90,7 @@
                   <th>Engine version</th>
                   <th>CSS grade</th>
                 </tr>
-              </tfoot>
+              </tfoot> -->
             </table>
           </div>
           <!-- /.card-body -->

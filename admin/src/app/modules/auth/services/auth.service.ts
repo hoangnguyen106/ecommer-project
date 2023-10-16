@@ -23,4 +23,9 @@ export class AuthService {
       return true;
     }
   }
+
+  // Get token
+  getToken() {
+    return localStorage.getItem('admin');
+  }
 }

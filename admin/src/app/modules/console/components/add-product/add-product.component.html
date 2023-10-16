@@ -1,0 +1,84 @@
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-primary">
+        <form class="form-horizontal" id="add-form">
+          <div class="modal-header">
+            <h4 class="modal-title" id="add-modal-label">ADD Product</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              (click)="onClose()"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="inputName">Title</label>
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                formControlName="projectName"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inputName">Description</label>
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                formControlName="projectName"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inputName">Price</label>
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                formControlName="projectName"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inputName">Brand</label>
+              <select name="" id="" class="form-control">
+                <option value="">Select Brand</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="inputName">Category</label>
+              <select name="" id="" class="form-control">
+                <option value="">Select Category</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="inputName">Color</label>
+              <select name="" id="" class="form-control">
+                <option value="">Select Color</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button
+                type="submit"
+                class="btn btn-success float-left mb-2 ml-3"
+              >
+                Add Product
+              </button>
+            </div>
+          </div>
+        </form>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+</section>
+<!-- /.content -->

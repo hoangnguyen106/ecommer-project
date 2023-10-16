@@ -1,0 +1,29 @@
+<table id="example2" class="table table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>STT</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let customer of data; let i = index">
+      <td>{{ i }}</td>
+      <td>{{ customer.firstname }} {{ customer.lastname }}</td>
+      <td>{{ customer.email }}</td>
+      <td>{{ customer.mobile }}</td>
+      <td>{{ customer.role }}</td>
+    </tr>
+  </tbody>
+  <tfoot>
+    <tr>
+      <th>Rendering engine</th>
+      <th>Browser</th>
+      <th>Platform(s)</th>
+      <th>Engine version</th>
+      <th>CSS grade</th>
+    </tr>
+  </tfoot>
+</table>
