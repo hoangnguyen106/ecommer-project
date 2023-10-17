@@ -22,9 +22,20 @@ import { ColorListComponent } from './components/color-list/color-list.component
 import { AddColorComponent } from './components/add-color/add-color.component';
 import { EnqiryListComponent } from './components/enqiry-list/enqiry-list.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptor } from '../shared/config/authconfig.interceptor';
 
 @NgModule({
-  imports: [CommonModule, CoreModule, SharedModule, ConsoleRoutes, NgbModule],
+  imports: [
+    CommonModule,
+    CoreModule,
+    SharedModule,
+    ConsoleRoutes,
+    NgbModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   declarations: [
     DashboardComponent,
     CustomersComponent,
@@ -44,6 +55,13 @@ import { OrderListComponent } from './components/order-list/order-list.component
     OrderListComponent,
   ],
   exports: [RouterModule],
-  providers: [AuthGuard],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    AuthGuard,
+  ],
 })
 export class ConsoleModule {}

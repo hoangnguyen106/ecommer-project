@@ -33,16 +33,12 @@ export class ProductListComponent implements OnInit {
     });
   }
 
-  addNewProject() {
+  addNewProduct() {
     const modalRef = this.modalService.open(AddProductComponent, this.options);
-
+    console.log(modalRef);
     modalRef.result
-      .then((result: any) => {
-        if (result) {
-          setTimeout(() => {
-            this.loadAllProducts();
-          }, 1000);
-        }
+      .then(() => {
+        this.loadAllProducts();
       })
       .catch((err) => {
         console.log(err);
