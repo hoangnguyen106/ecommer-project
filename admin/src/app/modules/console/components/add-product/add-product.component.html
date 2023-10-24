@@ -73,11 +73,12 @@
               </select>
             </div>
             <div class="form-group">
-              <label for="multiSelect">Color</label>
+              <label>Color</label>
               <select
-                id="multiSelect"
-                class="form-control"
-                multiple
+                class="select2bs4"
+                multiple="multiple"
+                style="width: 100%"
+                data-placeholder="Select a State"
                 formControlName="color"
               >
                 <option *ngFor="let item of colors" [value]="item._id">
@@ -85,6 +86,7 @@
                 </option>
               </select>
             </div>
+
             <div class="form-group">
               <label for="inputName">Quantity</label>
               <input
@@ -93,6 +95,36 @@
                 class="form-control"
                 formControlName="quantity"
               />
+            </div>
+
+            <div class="form-group">
+              <label for="files">Images</label>
+              <input
+                type="file"
+                id="files"
+                multiple
+                class="form-control"
+                (change)="onFileChange($event)"
+              />
+              <div class="d-flex">
+                <div
+                  formArrayName="images"
+                  *ngFor="let item of loadImage; let i = index"
+                >
+                  <div class="position-relative mt-2">
+                    <button
+                      class="btn-close position-absolute"
+                      style="top: 2px; right: 2px"
+                    ></button>
+                    <img
+                      width="200"
+                      height="200"
+                      [src]="item.url"
+                      alt="Images {{ i + 1 }}"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row">

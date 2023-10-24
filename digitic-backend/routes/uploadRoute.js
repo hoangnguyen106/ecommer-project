@@ -12,7 +12,7 @@ router.post(
   productImgResize,
   uploadImages
 );
-
+  
 router.delete("/delete-img/:id", authMiddleware, isAdmin, deleteImages);
 
 module.exports = router;
