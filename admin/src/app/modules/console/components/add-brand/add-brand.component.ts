@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { BrandService } from '../../services/brand.service';
 
 @Component({
   selector: 'app-add-brand',
@@ -7,7 +8,12 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   styleUrls: ['./add-brand.component.scss'],
 })
 export class AddBrandComponent {
-  constructor(private _NgbActiveModal: NgbActiveModal) {}
+  constructor(
+    private _NgbActiveModal: NgbActiveModal,
+    private brandService: BrandService
+  ) {}
+
+  
 
   onClose() {
     this._NgbActiveModal.dismiss();

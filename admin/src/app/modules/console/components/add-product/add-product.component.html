@@ -107,19 +107,18 @@
                 (change)="onFileChange($event)"
               />
               <div class="d-flex">
-                <div
-                  formArrayName="images"
-                  *ngFor="let item of loadImage; let i = index"
-                >
+                <div *ngFor="let item of photos.controls; let i = index">
                   <div class="position-relative mt-2">
                     <button
+                      (click)="deleteImage(item.value.public_id)"
                       class="btn-close position-absolute"
                       style="top: 2px; right: 2px"
                     ></button>
                     <img
+                      formArrayName="images"
                       width="200"
                       height="200"
-                      [src]="item.url"
+                      [src]="item.value.url || null"
                       alt="Images {{ i + 1 }}"
                     />
                   </div>

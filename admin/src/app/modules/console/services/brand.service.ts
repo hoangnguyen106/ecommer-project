@@ -11,4 +11,8 @@ export class BrandService {
   getAllBrand() {
     return this.http.get(`${brandUrl}`);
   }
+
+  createBrand(data: any) {
+    return this.http.post(`${brandUrl}`, data);
+  }
 }

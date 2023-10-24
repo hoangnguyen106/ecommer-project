@@ -11,4 +11,8 @@ export class UploadService {
   uploadImage(data: any) {
     return this.http.post(`${baseUrl}/upload`, data);
   }
+
+  deleteImage(id: any) {
+    return this.http.delete(`${baseUrl}/upload/delete-img/${id}`);
+  }
 }

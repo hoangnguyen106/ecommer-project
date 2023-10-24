@@ -83,19 +83,35 @@ export class AddProductComponent implements OnInit {
   // File upload image change
   onFileChange(event: any) {
     let files = event.target.files;
-    if (files) {
-      const formData = new FormData();
 
-      for (let i = 0; i < files.length; i++) {
-        formData.append('images', files[i]);
-      }
+    console.log(files);
 
-      this.uploadService.uploadImage(formData).subscribe((res) => {
-        this.loadImage = res;
+    const formData = new FormData();
 
-        console.log('Upload image', res);
-      });
+    for (let i = 0; i < files.length; i++) {
+      formData.append('images', files[i]);
     }
+
+    this.uploadService.uploadImage(formData).subscribe((res) => {
+      this.loadImage = res;
+      Object.values(res).forEach((data: any) => {
+        this.photos.push(
+          this.createItem({
+            url: data.url,
+            public_id: data.public_id,
+          })
+        );
+      });
+
+      console.log('Upload image', res);
+    });
+  }
+
+  deleteImage(id: any) {
+    console.log(id);
+    this.uploadService.deleteImage(id).subscribe((res) => {
+      console.log(res);
+    });
   }
 
   // Thêm sản phẩm
@@ -104,15 +120,6 @@ export class AddProductComponent implements OnInit {
       .createProduct(this.addProduct.value)
       .subscribe((res) => {
         console.log(res);
-        Object.values(this.loadImage).map((data: any) => {
-          this.photos.push(
-            this.createItem({
-              url: data.url,
-              public_id: data.public_id,
-            })
-          );
-        });
-
         if (res != null) {
           this._NgbActiveModal.close();
         }
