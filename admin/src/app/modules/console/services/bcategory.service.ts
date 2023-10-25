@@ -1,6 +1,6 @@
+import { blogCategoryUrl } from './../../shared/utils/url';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { blogCategoryUrl } from '../../shared/utils/url';
 
 @Injectable({
   providedIn: 'root',
@@ -10,5 +10,9 @@ export class BcategoryService {
 
   getAllBcategory() {
     return this.http.get(`${blogCategoryUrl}`);
+  }
+
+  createBCategory(data: any) {
+    return this.http.post(`${blogCategoryUrl}`, data);
   }
 }

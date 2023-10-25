@@ -6,4 +6,5 @@ export const blogUrl = 'http://localhost:5000/api/blog';
 export const blogCategoryUrl = 'http://localhost:5000/api/blogcategory';
 export const colorUrl = 'http://localhost:5000/api/color';
 export const enquiryUrl = 'http://localhost:5000/api/enquiry';
+export const couponUrl = 'http://localhost:5000/api/coupon';
 export const baseUrl = 'http://localhost:5000/api';

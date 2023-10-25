@@ -3,7 +3,12 @@
   <div class="row">
     <div class="col-md-12">
       <div class="card card-primary">
-        <form class="form-horizontal" id="add-form">
+        <form
+          class="form-horizontal"
+          id="add-form"
+          [formGroup]="addCategory"
+          (ngSubmit)="onAddCategory()"
+        >
           <div class="modal-header">
             <h4 class="modal-title" id="add-modal-label">ADD CATEGORY</h4>
             <button
@@ -24,7 +29,7 @@
                 type="text"
                 id="inputName"
                 class="form-control"
-                formControlName="projectName"
+                formControlName="title"
               />
             </div>
           </div>

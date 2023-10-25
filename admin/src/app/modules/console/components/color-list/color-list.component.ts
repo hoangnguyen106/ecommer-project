@@ -36,12 +36,8 @@ export class ColorListComponent {
     const modalRef = this.modalService.open(AddColorComponent, this.options);
 
     modalRef.result
-      .then((result: any) => {
-        if (result) {
-          setTimeout(() => {
-            this.loadAllColor();
-          }, 1000);
-        }
+      .then(() => {
+        this.loadAllColor();
       })
       .catch((err) => {
         console.log(err);

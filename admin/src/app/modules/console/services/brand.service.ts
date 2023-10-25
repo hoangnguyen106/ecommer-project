@@ -15,4 +15,12 @@ export class BrandService {
   createBrand(data: any) {
     return this.http.post(`${brandUrl}`, data);
   }
+
+  getBrandById(id: any) {
+    return this.http.get(`${brandUrl}/${id}`);
+  }
+
+  updateBrand(id: any, data: any) {
+    return this.http.put(`${brandUrl}/${id}`, data);
+  }
 }

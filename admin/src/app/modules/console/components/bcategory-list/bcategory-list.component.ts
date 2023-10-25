@@ -39,12 +39,8 @@ export class BcategoryListComponent {
     );
 
     modalRef.result
-      .then((result: any) => {
-        if (result) {
-          setTimeout(() => {
-            this.loadAllBcategory();
-          }, 1000);
-        }
+      .then(() => {
+        this.loadAllBcategory();
       })
       .catch((err) => {
         console.log(err);

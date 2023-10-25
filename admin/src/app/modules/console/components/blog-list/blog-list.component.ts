@@ -37,12 +37,8 @@ export class BlogListComponent {
     const modalRef = this.modalService.open(AddBlogComponent, this.options);
 
     modalRef.result
-      .then((result: any) => {
-        if (result) {
-          setTimeout(() => {
-            this.loadAllBlogs();
-          }, 1000);
-        }
+      .then(() => {
+        this.loadAllBlogs();
       })
       .catch((err) => {
         console.log(err);

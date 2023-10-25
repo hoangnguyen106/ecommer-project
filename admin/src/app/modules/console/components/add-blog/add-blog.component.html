@@ -1,1 +1,105 @@
-<p>add-blog works!</p>
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-primary">
+        <form
+          class="form-horizontal"
+          id="add-form"
+          [formGroup]="addBlog"
+          (ngSubmit)="onAddBlog()"
+        >
+          <div class="modal-header">
+            <h4 class="modal-title" id="add-modal-label">ADD BLOG</h4>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              (click)="onClose()"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+            <div class="form-group">
+              <label for="inputName">Blog Name</label>
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                formControlName="title"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inputName">Category</label>
+              <select
+                class="form-select"
+                aria-label="Default select example"
+                formControlName="category"
+              >
+                <option selected>--- Select Category ---</option>
+                <option *ngFor="let category of bCategory">
+                  {{ category.title }}
+                </option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="inputName">Description</label>
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                formControlName="description"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="files">Images</label>
+              <input
+                type="file"
+                id="files"
+                multiple
+                class="form-control"
+                (change)="onFileChange($event)"
+              />
+              <div class="d-flex">
+                <div *ngFor="let item of photos.controls; let i = index">
+                  <div class="position-relative mt-2">
+                    <button
+                      (click)="deleteImage(item.value.public_id)"
+                      class="btn-close position-absolute"
+                      style="top: 2px; right: 2px"
+                    ></button>
+                    <img
+                      formArrayName="images"
+                      width="200"
+                      height="200"
+                      [src]="item.value.url || null"
+                      alt="Images {{ i + 1 }}"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button
+                type="submit"
+                class="btn btn-success float-left mb-2 ml-3"
+              >
+                Add brand
+              </button>
+            </div>
+          </div>
+        </form>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+</section>
+<!-- /.content -->

@@ -11,4 +11,8 @@ export class ColorService {
   getAllColor() {
     return this.http.get(`${colorUrl}`);
   }
+
+  createColor(data: any) {
+   return this.http.post(`${colorUrl}`, data);
+  }
 }

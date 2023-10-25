@@ -11,4 +11,8 @@ export class CategoryService {
   getAllCategory() {
     return this.http.get(`${categoryUrl}`);
   }
+
+  createCategory(data: any) {
+    return this.http.post(`${categoryUrl}`, data);
+  }
 }

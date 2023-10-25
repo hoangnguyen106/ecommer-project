@@ -11,4 +11,8 @@ export class BlogService {
   getAllBlog() {
     return this.http.get(`${blogUrl}`);
   }
+
+  createBlog(data: any) {
+    return this.http.post(`${blogUrl}`, data);
+  }
 }

@@ -16,6 +16,8 @@ import { AddColorComponent } from './components/add-color/add-color.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { EnqiryListComponent } from './components/enqiry-list/enqiry-list.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
+import { CouponListComponent } from './components/coupon-list/coupon-list.component';
+import { AddCouponComponent } from './components/add-coupon/add-coupon.component';
 
 const routes: Routes = [
   {
@@ -82,6 +84,14 @@ const routes: Routes = [
       {
         path: 'list-order',
         component: OrderListComponent,
+      },
+      {
+        path: 'list-coupon',
+        component: CouponListComponent,
+      },
+      {
+        path: 'add-coupon',
+        component: AddCouponComponent,
       },
       {
         path: '',

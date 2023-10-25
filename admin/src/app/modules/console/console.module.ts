@@ -25,6 +25,8 @@ import { OrderListComponent } from './components/order-list/order-list.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../shared/config/authconfig.interceptor';
+import { CouponListComponent } from './components/coupon-list/coupon-list.component';
+import { AddCouponComponent } from './components/add-coupon/add-coupon.component';
 
 @NgModule({
   imports: [
@@ -53,6 +55,8 @@ import { AuthInterceptor } from '../shared/config/authconfig.interceptor';
     AddColorComponent,
     EnqiryListComponent,
     OrderListComponent,
+    CouponListComponent,
+    AddCouponComponent,
   ],
   exports: [RouterModule],
   providers: [

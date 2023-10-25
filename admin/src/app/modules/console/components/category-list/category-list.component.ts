@@ -36,12 +36,8 @@ export class CategoryListComponent {
     const modalRef = this.modalService.open(AddCategoryComponent, this.options);
 
     modalRef.result
-      .then((result: any) => {
-        if (result) {
-          setTimeout(() => {
-            this.loadAllCategory();
-          }, 1000);
-        }
+      .then(() => {
+        this.loadAllCategory();
       })
       .catch((err) => {
         console.log(err);

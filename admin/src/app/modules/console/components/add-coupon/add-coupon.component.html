@@ -6,11 +6,11 @@
         <form
           class="form-horizontal"
           id="add-form"
-          [formGroup]="addBrand"
-          (ngSubmit)="onAddBrand()"
+          [formGroup]="addCoupon"
+          (ngSubmit)="onAddCoupon()"
         >
           <div class="modal-header">
-            <h4 class="modal-title" id="add-modal-label">ADD BRAND</h4>
+            <h4 class="modal-title" id="add-modal-label">ADD COUPON</h4>
             <button
               type="button"
               class="close"
@@ -24,12 +24,30 @@
 
           <div class="modal-body">
             <div class="form-group">
-              <label for="inputName">Brand Name</label>
+              <label for="inputName">Name</label>
               <input
                 type="text"
                 id="inputName"
                 class="form-control"
-                formControlName="title"
+                formControlName="name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inputName">Expiry</label>
+              <input
+                type="date"
+                id="inputName"
+                class="form-control"
+                formControlName="expiry"
+              />
+            </div>
+            <div class="form-group">
+              <label for="inputName">Discount</label>
+              <input
+                type="text"
+                id="inputName"
+                class="form-control"
+                formControlName="discount"
               />
             </div>
           </div>
@@ -39,7 +57,7 @@
                 type="submit"
                 class="btn btn-success float-left mb-2 ml-3"
               >
-                Add brand
+                Add category
               </button>
             </div>
           </div>

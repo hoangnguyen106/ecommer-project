@@ -36,12 +36,8 @@ export class BrandListComponent {
     const modalRef = this.modalService.open(AddBrandComponent, this.options);
 
     modalRef.result
-      .then((result: any) => {
-        if (result) {
-          setTimeout(() => {
-            this.loadAllBrand();
-          }, 1000);
-        }
+      .then(() => {
+        this.loadAllBrand();
       })
       .catch((err) => {
         console.log(err);
