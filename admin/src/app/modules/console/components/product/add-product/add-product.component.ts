@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ProductService } from '../../services/product.service';
-import { ColorService } from '../../services/color.service';
-import { BrandService } from '../../services/brand.service';
-import { CategoryService } from '../../services/category.service';
-import { UploadService } from '../../services/upload.service';
+import { ProductService } from '../../../services/product.service';
+import { ColorService } from '../../../services/color.service';
+import { BrandService } from '../../../services/brand.service';
+import { CategoryService } from '../../../services/category.service';
+import { UploadService } from '../../../services/upload.service';
 import { map } from 'rxjs';
 
 @Component({

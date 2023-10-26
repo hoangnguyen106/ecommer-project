@@ -3,7 +3,7 @@ import { MainComponent } from '../core/components/main/main.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { CustomersComponent } from './components/customers/customers.component';
-import { ProductListComponent } from './components/product-list/product-list.component';
+import { ProductListComponent } from './components/product/product-list/product-list.component';
 import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
 import { AddBrandComponent } from './components/brand/add-brand/add-brand.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';

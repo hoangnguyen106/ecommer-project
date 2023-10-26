@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../services/product.service';
+
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { AddProductComponent } from '../add-product/add-product.component';
+import { ProductService } from '../../../services/product.service';
 
 @Component({
   selector: 'app-product-list',
