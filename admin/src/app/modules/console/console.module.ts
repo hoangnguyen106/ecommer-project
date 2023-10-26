@@ -8,8 +8,8 @@ import { RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { CustomersComponent } from './components/customers/customers.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { BrandListComponent } from './components/brand-list/brand-list.component';
-import { AddBrandComponent } from './components/add-brand/add-brand.component';
+import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
+import { AddBrandComponent } from './components/brand/add-brand/add-brand.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CategoryListComponent } from './components/category-list/category-list.component';
 import { AddCategoryComponent } from './components/add-category/add-category.component';
@@ -27,6 +27,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from '../shared/config/authconfig.interceptor';
 import { CouponListComponent } from './components/coupon-list/coupon-list.component';
 import { AddCouponComponent } from './components/add-coupon/add-coupon.component';
+import { DeleteBrandComponent } from './components/brand/delete-brand/delete-brand.component';
 
 @NgModule({
   imports: [
@@ -57,6 +58,7 @@ import { AddCouponComponent } from './components/add-coupon/add-coupon.component
     OrderListComponent,
     CouponListComponent,
     AddCouponComponent,
+    DeleteBrandComponent,
   ],
   exports: [RouterModule],
   providers: [

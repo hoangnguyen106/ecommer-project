@@ -17,7 +17,7 @@
 <section class="content">
   <div class="card">
     <div class="card-header">
-      <button type="button" class="btn btn-primary" (click)="addNewProject()">
+      <button type="button" class="btn btn-primary" (click)="openAddBrand()">
         Add brand
       </button>
       <div class="card-tools">
@@ -61,10 +61,17 @@
                     <td>{{ i }}</td>
                     <td>{{ brand.title }}</td>
                     <td class="d-flex">
-                      <a class="mr-2" style="cursor: pointer">
+                      <a
+                        class="mr-2"
+                        style="cursor: pointer"
+                        (click)="openEditBrand(brand)"
+                      >
                         <i class="far fa-edit"></i>
                       </a>
-                      <a style="cursor: pointer">
+                      <a
+                        style="cursor: pointer"
+                        (click)="openDeleteBrand(brand)"
+                      >
                         <i class="fas fa-trash"></i>
                       </a>
                     </td>

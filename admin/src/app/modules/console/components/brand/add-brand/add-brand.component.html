@@ -7,10 +7,12 @@
           class="form-horizontal"
           id="add-form"
           [formGroup]="addBrand"
-          (ngSubmit)="onAddBrand()"
+          (ngSubmit)="onSubmit()"
         >
           <div class="modal-header">
-            <h4 class="modal-title" id="add-modal-label">ADD BRAND</h4>
+            <h4 class="modal-title" id="add-modal-label">
+              {{ isAddMode ? "ADD BRAND" : "EDIT BRAND" }}
+            </h4>
             <button
               type="button"
               class="close"
@@ -39,7 +41,7 @@
                 type="submit"
                 class="btn btn-success float-left mb-2 ml-3"
               >
-                Add brand
+                {{ isAddMode ? "ADD BRAND" : "EDIT BRAND" }}
               </button>
             </div>
           </div>
