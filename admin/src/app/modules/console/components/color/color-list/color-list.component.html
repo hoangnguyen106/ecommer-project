@@ -17,7 +17,7 @@
 <section class="content">
   <div class="card">
     <div class="card-header">
-      <button type="button" class="btn btn-primary" (click)="addNewProject()">
+      <button type="button" class="btn btn-primary" (click)="addNewColor()">
         Add Color
       </button>
       <div class="card-tools">
@@ -61,10 +61,17 @@
                     <td>{{ i }}</td>
                     <td>{{ color.title }}</td>
                     <td class="d-flex">
-                      <a class="mr-2" style="cursor: pointer">
+                      <a
+                        class="mr-2"
+                        style="cursor: pointer"
+                        (click)="openEditColor(color)"
+                      >
                         <i class="far fa-edit"></i>
                       </a>
-                      <a style="cursor: pointer">
+                      <a
+                        style="cursor: pointer"
+                        (click)="openDeleteColor(color)"
+                      >
                         <i class="fas fa-trash"></i>
                       </a>
                     </td>

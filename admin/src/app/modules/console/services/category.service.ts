@@ -15,4 +15,16 @@ export class CategoryService {
   createCategory(data: any) {
     return this.http.post(`${categoryUrl}`, data);
   }
+
+  getCategoryById(id: any) {
+    return this.http.get(`${categoryUrl}/${id}`);
+  }
+
+  updateCategory(id: any, data: any) {
+    return this.http.put(`${categoryUrl}/${id}`, data);
+  }
+
+  deleteCategory(id: any) {
+    return this.http.delete(`${categoryUrl}/${id}`);
+  }
 }

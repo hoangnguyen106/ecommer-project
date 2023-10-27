@@ -13,6 +13,18 @@ export class ColorService {
   }
 
   createColor(data: any) {
-   return this.http.post(`${colorUrl}`, data);
+    return this.http.post(`${colorUrl}`, data);
+  }
+
+  getColorById(id: any) {
+    return this.http.get(`${colorUrl}/${id}`);
+  }
+
+  updateColor(id: any, data: any) {
+    return this.http.put(`${colorUrl}/${id}`, data);
+  }
+
+  deleteColor(id: any) {
+    return this.http.delete(`${colorUrl}/${id}`);
   }
 }

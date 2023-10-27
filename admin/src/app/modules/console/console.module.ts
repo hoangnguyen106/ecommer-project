@@ -11,15 +11,15 @@ import { ProductListComponent } from './components/product/product-list/product-
 import { BrandListComponent } from './components/brand/brand-list/brand-list.component';
 import { AddBrandComponent } from './components/brand/add-brand/add-brand.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { CategoryListComponent } from './components/category-list/category-list.component';
-import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { CategoryListComponent } from './components/category/category-list/category-list.component';
+import { AddCategoryComponent } from './components/category/add-category/add-category.component';
 import { AddProductComponent } from './components/product/add-product/add-product.component';
 import { AddBlogComponent } from './components/add-blog/add-blog.component';
 import { BlogListComponent } from './components/blog-list/blog-list.component';
 import { AddBcategoryComponent } from './components/add-bcategory/add-bcategory.component';
 import { BcategoryListComponent } from './components/bcategory-list/bcategory-list.component';
-import { ColorListComponent } from './components/color-list/color-list.component';
-import { AddColorComponent } from './components/add-color/add-color.component';
+import { ColorListComponent } from './components/color/color-list/color-list.component';
+import { AddColorComponent } from './components/color/add-color/add-color.component';
 import { EnqiryListComponent } from './components/enqiry-list/enqiry-list.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -28,6 +28,8 @@ import { AuthInterceptor } from '../shared/config/authconfig.interceptor';
 import { CouponListComponent } from './components/coupon-list/coupon-list.component';
 import { AddCouponComponent } from './components/add-coupon/add-coupon.component';
 import { DeleteBrandComponent } from './components/brand/delete-brand/delete-brand.component';
+import { DeleteCategoryComponent } from './components/category/delete-category/delete-category.component';
+import { DeleteColorComponent } from './components/color/delete-color/delete-color.component';
 
 @NgModule({
   imports: [
@@ -59,6 +61,8 @@ import { DeleteBrandComponent } from './components/brand/delete-brand/delete-bra
     CouponListComponent,
     AddCouponComponent,
     DeleteBrandComponent,
+    DeleteCategoryComponent,
+    DeleteColorComponent,
   ],
   exports: [RouterModule],
   providers: [

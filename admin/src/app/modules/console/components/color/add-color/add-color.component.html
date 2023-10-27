@@ -7,10 +7,12 @@
           class="form-horizontal"
           id="add-form"
           [formGroup]="addColor"
-          (ngSubmit)="onAddColor()"
+          (ngSubmit)="onSubmit()"
         >
           <div class="modal-header">
-            <h4 class="modal-title" id="add-modal-label">ADD COLOR</h4>
+            <h4 class="modal-title" id="add-modal-label">
+              {{ isAddMode ? "ADD COLOR" : "EDIT COLOR" }}
+            </h4>
             <button
               type="button"
               class="close"
@@ -39,7 +41,7 @@
                 type="submit"
                 class="btn btn-success float-left mb-2 ml-3"
               >
-                Add color
+                {{ isAddMode ? "ADD COLOR" : "EDIT COLOR" }}
               </button>
             </div>
           </div>
