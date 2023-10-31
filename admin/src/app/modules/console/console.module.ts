@@ -32,6 +32,7 @@ import { DeleteCategoryComponent } from './components/category/delete-category/d
 import { DeleteColorComponent } from './components/color/delete-color/delete-color.component';
 import { DeleteCouponComponent } from './components/coupon/delete-coupon/delete-coupon.component';
 import { DeleteBcategoryComponent } from './components/bcategory/delete-bcategory/delete-bcategory.component';
+import { DeleteBlogComponent } from './components/blog/delete-blog/delete-blog.component';
 
 @NgModule({
   imports: [
@@ -67,6 +68,7 @@ import { DeleteBcategoryComponent } from './components/bcategory/delete-bcategor
     DeleteColorComponent,
     DeleteCouponComponent,
     DeleteBcategoryComponent,
+    DeleteBlogComponent,
   ],
   exports: [RouterModule],
   providers: [

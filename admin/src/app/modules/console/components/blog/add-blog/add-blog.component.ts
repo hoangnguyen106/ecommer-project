@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { BlogService } from '../../../services/blog.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BcategoryService } from '../../../services/bcategory.service';
 import { UploadService } from '../../../services/upload.service';
+import { Blog } from '../../../models/blog';
+import { ActivatedRoute, Router } from '@angular/router';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-add-blog',
@@ -11,26 +14,54 @@ import { UploadService } from '../../../services/upload.service';
   styleUrls: ['./add-blog.component.scss'],
 })
 export class AddBlogComponent implements OnInit {
-  addBlog: FormGroup;
+  addBlog!: FormGroup;
   bCategory: any;
   loadImage: any;
+  
+  id!: string | null;
+  isAddMode: boolean = true;
+  @Input() item!: Blog;
 
   constructor(
     private _NgbActiveModal: NgbActiveModal,
     private blogService: BlogService,
     private bCategoryService: BcategoryService,
     private uploadService: UploadService,
+    private route: ActivatedRoute,
+    private router: Router,
     public fb: FormBuilder
-  ) {
+  ) {}
+  ngOnInit(): void {
+    this.getAllBCategory();
+    // Lấy params từ url
+    this.id = this.route.snapshot.queryParams['id'];
+    console.log('id =============>', this.id);
+
     this.addBlog = this.fb.group({
       title: ['', Validators.required],
       category: ['', Validators.required],
       description: ['', Validators.required],
       images: this.fb.array([]),
     });
+
+    // Check params có tồn tại hay không
+    if (this.id === undefined) {
+      this.isAddMode = true;
+    } else {
+      this.loadData(this.item._id);
+      this.isAddMode = false;
+    }
   }
-  ngOnInit(): void {
-    this.getAllBCategory();
+
+  // Lấy ra dữ liệu từng blog theo id
+  loadData(id: any) {
+    this.blogService
+      .getBlogById(id)
+      .pipe(first())
+      .subscribe((res) => {
+        console.log('data brand by id', res);
+        this.addBlog.patchValue(res);
+      });
   }
 
   getAllBCategory() {
@@ -84,6 +115,15 @@ export class AddBlogComponent implements OnInit {
     });
   }
 
+  // Select cách edit hay add
+  onSubmit() {
+    if (this.isAddMode) {
+      this.onAddBlog();
+    } else {
+      this.onUpdateBlog();
+    }
+  }
+
   onAddBlog() {
     this.blogService.createBlog(this.addBlog.value).subscribe((res) => {
       if (res != null) {
@@ -93,7 +133,28 @@ export class AddBlogComponent implements OnInit {
     });
   }
 
+  // Update brand
+  onUpdateBlog() {
+    this.blogService
+      .updateBlog(this.id, this.addBlog.value)
+      .pipe(first())
+      .subscribe((res) => {
+        console.log(res);
+        if (res != null) {
+          this.router.navigate(['/console/list-blog'], {
+            queryParams: {},
+          });
+          this._NgbActiveModal.close();
+        }
+        this.addBlog.reset();
+      });
+  }
+
+  // Đóng popup
   onClose() {
     this._NgbActiveModal.dismiss();
+    this.router.navigate(['/console/list-blog'], {
+      queryParams: {},
+    });
   }
 }

@@ -15,4 +15,16 @@ export class BlogService {
   createBlog(data: any) {
     return this.http.post(`${blogUrl}`, data);
   }
+
+  getBlogById(id: any) {
+    return this.http.get(`${blogUrl}/${id}`);
+  }
+
+  updateBlog(id: any, data: any) {
+    return this.http.put(`${blogUrl}/${id}`, data);
+  }
+
+  deleteBlog(id: any) {
+    return this.http.delete(`${blogUrl}/${id}`);
+  }
 }

@@ -20,11 +20,7 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <button
-              type="button"
-              class="btn btn-primary"
-              (click)="addNewProject()"
-            >
+            <button type="button" class="btn btn-primary" (click)="onAddBlog()">
               Add Blog
             </button>
             <div class="card-tools">
@@ -63,10 +59,14 @@
                   <td>{{ blog.title }}</td>
                   <td>{{ blog.category }}</td>
                   <td class="d-flex">
-                    <a class="mr-2" style="cursor: pointer">
+                    <a
+                      class="mr-2"
+                      style="cursor: pointer"
+                      (click)="openEditBlog(blog)"
+                    >
                       <i class="far fa-edit"></i>
                     </a>
-                    <a style="cursor: pointer">
+                    <a style="cursor: pointer" (click)="openDeleteBlog(blog)">
                       <i class="fas fa-trash"></i>
                     </a>
                   </td>
