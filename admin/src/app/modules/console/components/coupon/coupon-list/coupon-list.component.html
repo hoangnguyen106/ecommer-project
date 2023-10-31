@@ -23,7 +23,7 @@
             <button
               type="button"
               class="btn btn-primary"
-              (click)="addNewCoupon()"
+              (click)="openAddCoupon()"
             >
               Add Coupon
             </button>
@@ -62,14 +62,21 @@
                 <tr *ngFor="let coupon of coupons; let i = index">
                   <td>{{ i }}</td>
                   <td>{{ coupon.name }}</td>
-                  <td>{{ coupon.expiry | date : "dd-MM-YYYY" }}</td>
+                  <td>{{ coupon.expiry | date : "dd/MM/YYYY" }}</td>
                   <td>{{ coupon.discount }}</td>
 
                   <td class="d-flex">
-                    <a class="mr-2" style="cursor: pointer">
+                    <a
+                      class="mr-2"
+                      style="cursor: pointer"
+                      (click)="openEditCoupon(coupon)"
+                    >
                       <i class="far fa-edit"></i>
                     </a>
-                    <a style="cursor: pointer">
+                    <a
+                      style="cursor: pointer"
+                      (click)="openDeleteCoupon(coupon)"
+                    >
                       <i class="fas fa-trash"></i>
                     </a>
                   </td>

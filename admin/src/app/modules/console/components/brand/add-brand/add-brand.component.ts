@@ -46,7 +46,7 @@ export class AddBrandComponent implements OnInit {
       .getBrandById(id)
       .pipe(first())
       .subscribe((res) => {
-        console.log(res);
+        console.log('data brand by id', res);
         this.addBrand.patchValue(res);
       });
   }
