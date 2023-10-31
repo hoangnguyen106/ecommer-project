@@ -7,10 +7,12 @@
           class="form-horizontal"
           id="add-form"
           [formGroup]="addBCategory"
-          (ngSubmit)="onAddBCategory()"
+          (ngSubmit)="onSubmit()"
         >
           <div class="modal-header">
-            <h4 class="modal-title" id="add-modal-label">ADD BLOG CATEGORY</h4>
+            <h4 class="modal-title" id="add-modal-label">
+              {{ isAddMode ? "ADD BLOG CATEGORY" : "EDIT BLOG CATEGORY" }}
+            </h4>
             <button
               type="button"
               class="close"
@@ -39,7 +41,7 @@
                 type="submit"
                 class="btn btn-success float-left mb-2 ml-3"
               >
-                Add brand
+                {{ isAddMode ? "ADD BLOG CATEGORY" : "EDIT BLOG CATEGORY" }}
               </button>
             </div>
           </div>

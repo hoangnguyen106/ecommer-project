@@ -17,7 +17,11 @@
 <section class="content">
   <div class="card">
     <div class="card-header">
-      <button type="button" class="btn btn-primary" (click)="addNewProject()">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="openAddBcategory()"
+      >
         Add blog category
       </button>
       <div class="card-tools">
@@ -61,10 +65,17 @@
                     <td>{{ i }}</td>
                     <td>{{ bcategory.title }}</td>
                     <td class="d-flex">
-                      <a class="mr-2" style="cursor: pointer">
+                      <a
+                        class="mr-2"
+                        style="cursor: pointer"
+                        (click)="openEditBcategory(bcategory)"
+                      >
                         <i class="far fa-edit"></i>
                       </a>
-                      <a style="cursor: pointer">
+                      <a
+                        style="cursor: pointer"
+                        (click)="openDeleteBcategory(bcategory)"
+                      >
                         <i class="fas fa-trash"></i>
                       </a>
                     </td>

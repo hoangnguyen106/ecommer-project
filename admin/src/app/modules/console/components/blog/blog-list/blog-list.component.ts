@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { BlogService } from '../../services/blog.service';
+import { BlogService } from '../../../services/blog.service';
 import { AddBlogComponent } from '../add-blog/add-blog.component';
 
 @Component({

@@ -15,4 +15,16 @@ export class BcategoryService {
   createBCategory(data: any) {
     return this.http.post(`${blogCategoryUrl}`, data);
   }
+
+  getBCategoryById(id: any) {
+    return this.http.get(`${blogCategoryUrl}/${id}`);
+  }
+
+  updateBCategory(id: any, data: any) {
+    return this.http.put(`${blogCategoryUrl}/${id}`, data);
+  }
+
+  deleteBCategory(id: any) {
+    return this.http.delete(`${blogCategoryUrl}/${id}`);
+  }
 }

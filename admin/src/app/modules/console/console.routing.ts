@@ -8,8 +8,8 @@ import { BrandListComponent } from './components/brand/brand-list/brand-list.com
 import { AddBrandComponent } from './components/brand/add-brand/add-brand.component';
 import { AddCategoryComponent } from './components/category/add-category/add-category.component';
 import { CategoryListComponent } from './components/category/category-list/category-list.component';
-import { AddBlogComponent } from './components/add-blog/add-blog.component';
-import { BlogListComponent } from './components/blog-list/blog-list.component';
+import { AddBlogComponent } from './components/blog/add-blog/add-blog.component';
+import { BlogListComponent } from './components/blog/blog-list/blog-list.component';
 import { AddBcategoryComponent } from './components/bcategory/add-bcategory/add-bcategory.component';
 import { BcategoryListComponent } from './components/bcategory/bcategory-list/bcategory-list.component';
 import { AddColorComponent } from './components/color/add-color/add-color.component';

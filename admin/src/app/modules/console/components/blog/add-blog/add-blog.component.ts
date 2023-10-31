@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogService } from '../../services/blog.service';
+import { BlogService } from '../../../services/blog.service';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { BcategoryService } from '../../services/bcategory.service';
-import { UploadService } from '../../services/upload.service';
+import { BcategoryService } from '../../../services/bcategory.service';
+import { UploadService } from '../../../services/upload.service';
 
 @Component({
   selector: 'app-add-blog',
