@@ -12,6 +12,7 @@ const { generateRefreshToken } = require("../config/refreshtoken");
 const crypto = require("crypto");
 const jwt = require("jsonwebtoken");
 const sendEmail = require("./emailCtrl");
+const { log } = require("console");
 
 // Create a User ----------------------------------------------
 
@@ -466,6 +467,21 @@ const getAllOrders = asyncHandler(async (req, res) => {
   }
 });
 
+const getOrderByUserId = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  validateMongoDbId(id);
+  try {
+    const userorders = await Order.findOne({ orderby: id })
+      .populate("orderItems.product")
+      .populate("user")
+      .exec();
+    console.log(userorders);
+    res.json(userorders);
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 module.exports = {
   createUser,
   loginUserCtrl,
@@ -491,4 +507,5 @@ module.exports = {
   getMyOrders,
   getAllOrders,
   getOrders,
+  getOrderByUserId,
 };

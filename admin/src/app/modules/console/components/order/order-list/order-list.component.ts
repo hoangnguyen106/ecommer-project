@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
-import { OrderService } from '../../services/order.service';
+import { OrderService } from '../../../services/order.service';
+
 
 @Component({
   selector: 'app-order-list',

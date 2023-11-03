@@ -26,6 +26,9 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/admin-lte/plugins/fontawesome-free/css/all.min.css",
+              "./node_modules/admin-lte/plugins/fontawesome-free/css/solid.min.css",
+              "./node_modules/admin-lte/plugins/fontawesome-free/css/regular.min.css",
+              "./node_modules/admin-lte/plugins/fontawesome-free/css/fontawesome.min.css",
               "./node_modules/admin-lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css",
               "./node_modules/admin-lte/plugins/icheck-bootstrap/icheck-bootstrap.min.css",
               "./node_modules/admin-lte/plugins/jqvmap/jqvmap.min.css",

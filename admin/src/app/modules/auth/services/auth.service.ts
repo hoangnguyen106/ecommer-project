@@ -2,12 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user';
 import { authUrl } from '../../shared/utils/url';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {}
 
   // Đăng nhập
   siginIn(user: User) {
@@ -27,5 +28,13 @@ export class AuthService {
   // Get token
   getToken() {
     return localStorage.getItem('admin');
+  }
+
+  // Logout user
+  doLogout() {
+    let removeToken = localStorage.removeItem('admin');
+    if (removeToken == null) {
+      this.router.navigate(['auth/login']);
+    }
   }
 }

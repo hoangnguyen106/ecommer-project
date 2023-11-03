@@ -13,4 +13,10 @@ export class OrderService {
   getAllOrder() {
     return this.http.get(`${authUrl}/getallorders`, { headers: this.headers });
   }
+
+  getOrder(id: any) {
+    return this.http.get(`${authUrl}//getorderbyuser/${id}`, {
+      headers: this.headers,
+    });
+  }
 }

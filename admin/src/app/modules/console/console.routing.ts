@@ -14,11 +14,13 @@ import { AddBcategoryComponent } from './components/bcategory/add-bcategory/add-
 import { BcategoryListComponent } from './components/bcategory/bcategory-list/bcategory-list.component';
 import { AddColorComponent } from './components/color/add-color/add-color.component';
 import { ColorListComponent } from './components/color/color-list/color-list.component';
-import { EnqiryListComponent } from './components/enqiry-list/enqiry-list.component';
-import { OrderListComponent } from './components/order-list/order-list.component';
+import { EnqiryListComponent } from './components/enquiry/enqiry-list/enqiry-list.component';
+
 import { CouponListComponent } from './components/coupon/coupon-list/coupon-list.component';
 import { AddCouponComponent } from './components/coupon/add-coupon/add-coupon.component';
 import { DeleteBrandComponent } from './components/brand/delete-brand/delete-brand.component';
+import { OrderListComponent } from './components/order/order-list/order-list.component';
+import { ViewOrderComponent } from './components/order/view-order/view-order.component';
 
 const routes: Routes = [
   {
@@ -93,6 +95,10 @@ const routes: Routes = [
       {
         path: 'list-order',
         component: OrderListComponent,
+      },
+      {
+        path: 'list-order/:id',
+        component: ViewOrderComponent,
       },
       {
         path: 'list-coupon',

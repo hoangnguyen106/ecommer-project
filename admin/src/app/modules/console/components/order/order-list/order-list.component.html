@@ -64,7 +64,9 @@
                   <td>{{ i }}</td>
                   <td>{{ order.user.firstname }}</td>
                   <td *ngFor="let product of order.orderItems">
-                    {{ product.product.title }}
+                    <a routerLink="{{ order._id }}">
+                      {{ product.product.title }}
+                    </a>
                   </td>
                   <td>{{ order.totalPrice }}</td>
                   <td>

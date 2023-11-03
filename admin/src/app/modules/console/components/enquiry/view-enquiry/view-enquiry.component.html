@@ -1,0 +1,62 @@
+<!-- Main content -->
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card card-primary">
+        <div class="modal-header">
+          <h4 class="modal-title" id="add-modal-label">VIEW ENQUIRY</h4>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+            (click)="onClose()"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body" *ngIf="dataEnquiry">
+          <div class="bg-white p-4 rounded-3">
+            <div class="d-flex align-items-center gap-3">
+              <div class="mb-0">Name:</div>
+              <p class="mb-0">{{ dataEnquiry.name }}</p>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="mb-0">Mobile:</div>
+              <p class="mb-0">
+                <a href="tel: +84{{ dataEnquiry.mobile }}">{{
+                  dataEnquiry.mobile
+                }}</a>
+              </p>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="mb-0">Email:</div>
+              <p class="mb-0">
+                <a href="mailto: {{ dataEnquiry.email }}">{{
+                  dataEnquiry.email
+                }}</a>
+              </p>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="mb-0">Comment:</div>
+              <p class="mb-0">{{ dataEnquiry.comment }}</p>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+              <div class="mb-0">Status:</div>
+              <p class="mb-0">{{ dataEnquiry.status }}</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+  </div>
+</section>
+<!-- /.content -->
