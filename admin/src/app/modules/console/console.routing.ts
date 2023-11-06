@@ -97,10 +97,6 @@ const routes: Routes = [
         component: OrderListComponent,
       },
       {
-        path: 'list-order/:id',
-        component: ViewOrderComponent,
-      },
-      {
         path: 'list-coupon',
         component: CouponListComponent,
       },

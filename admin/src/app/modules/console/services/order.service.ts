@@ -15,8 +15,12 @@ export class OrderService {
   }
 
   getOrder(id: any) {
-    return this.http.get(`${authUrl}//getorderbyuser/${id}`, {
+    return this.http.get(`${authUrl}/getorderbyuser/${id}`, {
       headers: this.headers,
     });
+  }
+
+  deleteOrder(id: any) {
+    return this.http.delete(`${authUrl}/order/${id}`);
   }
 }

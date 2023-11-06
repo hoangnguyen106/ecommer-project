@@ -1,7 +1,10 @@
 import { Component } from '@angular/core';
 import { NgbModal, NgbModalOptions } from '@ng-bootstrap/ng-bootstrap';
 import { OrderService } from '../../../services/order.service';
-
+import { Order } from '../../../models/order';
+import { Router } from '@angular/router';
+import { ViewOrderComponent } from '../view-order/view-order.component';
+import { DeleteOrderComponent } from '../delete-order/delete-order.component';
 
 @Component({
   selector: 'app-order-list',
@@ -19,7 +22,8 @@ export class OrderListComponent {
 
   constructor(
     private orderService: OrderService,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -31,5 +35,38 @@ export class OrderListComponent {
       this.orders = res;
       console.log('orders', res);
     });
+  }
+
+  openViewProduct(item: Order) {
+    // Push params lên url
+    this.router.navigate(['/console/list-order'], {
+      queryParams: { id: item._id },
+    });
+
+    // Open view order
+    const modalRef = this.modalService.open(ViewOrderComponent, this.options);
+    modalRef.componentInstance.item = item;
+
+    modalRef.result
+      .then(() => {
+        this.loadAllOrder();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
+  // Xóa order
+  openDeleteOrder(item: Order) {
+    const modalRef = this.modalService.open(DeleteOrderComponent, this.options);
+    modalRef.componentInstance.item = item;
+
+    modalRef.result
+      .then(() => {
+        this.loadAllOrder();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 }

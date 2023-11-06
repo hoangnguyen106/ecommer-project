@@ -11,4 +11,9 @@ export class UserService {
   getAllUser() {
     return this.http.get(`${authUrl}/all-users`);
   }
+
+  getMonthlyOrder(){
+    return this.http.get(`${authUrl}/`)
+  }
+
 }

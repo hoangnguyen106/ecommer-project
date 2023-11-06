@@ -37,6 +37,7 @@ import { OrderListComponent } from './components/order/order-list/order-list.com
 import { ViewEnquiryComponent } from './components/enquiry/view-enquiry/view-enquiry.component';
 import { DeleteEnquiryComponent } from './components/enquiry/delete-enquiry/delete-enquiry.component';
 import { ViewOrderComponent } from './components/order/view-order/view-order.component';
+import { DeleteOrderComponent } from './components/order/delete-order/delete-order.component';
 
 @NgModule({
   imports: [
@@ -76,6 +77,7 @@ import { ViewOrderComponent } from './components/order/view-order/view-order.com
     ViewEnquiryComponent,
     DeleteEnquiryComponent,
     ViewOrderComponent,
+    DeleteOrderComponent,
   ],
   exports: [RouterModule],
   providers: [

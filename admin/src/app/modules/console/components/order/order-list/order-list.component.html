@@ -64,7 +64,7 @@
                   <td>{{ i }}</td>
                   <td>{{ order.user.firstname }}</td>
                   <td *ngFor="let product of order.orderItems">
-                    <a routerLink="{{ order._id }}">
+                    <a (click)="openViewProduct(order)">
                       {{ product.product.title }}
                     </a>
                   </td>
@@ -73,7 +73,7 @@
                     {{ order.createdAt | date : "dd-MM-YYYY HH:mm:ss" }}
                   </td>
                   <td class="d-flex">
-                    <a style="cursor: pointer">
+                    <a style="cursor: pointer" (click)="openDeleteOrder(order)">
                       <i class="fas fa-trash"></i>
                     </a>
                   </td>
