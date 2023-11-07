@@ -467,6 +467,17 @@ const getAllOrders = asyncHandler(async (req, res) => {
   }
 });
 
+const getSingleOrder = asyncHandler(async (req, res) => {
+  const { id } = req.params;
+  try {
+    const orders = await Order.findOne({ _id: id });
+    console.log(orders);
+    res.json({ orders });
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+
 const getOrderByUserId = asyncHandler(async (req, res) => {
   const { id } = req.params;
   validateMongoDbId(id);
@@ -532,7 +543,12 @@ const getMonthWiseOrderIncome = asyncHandler(async (req, res) => {
         _id: {
           month: "$month",
         },
-        amount: { $sum: "$totalPriceAfterDiscount" },
+        amount: {
+          $sum: "$totalPriceAfterDiscount",
+        },
+        count: {
+          $sum: 1,
+        },
       },
     },
   ]);
@@ -540,52 +556,52 @@ const getMonthWiseOrderIncome = asyncHandler(async (req, res) => {
   res.json(data);
 });
 
-const getMonthWiseOrderCount = asyncHandler(async (req, res) => {
-  let monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
+// const getMonthWiseOrderCount = asyncHandler(async (req, res) => {
+//   let monthNames = [
+//     "January",
+//     "February",
+//     "March",
+//     "April",
+//     "May",
+//     "June",
+//     "July",
+//     "August",
+//     "September",
+//     "October",
+//     "November",
+//     "December",
+//   ];
 
-  let d = new Date();
-  let endDate = "";
-  d.setDate(1);
-  for (let index = 0; index < 11; index++) {
-    d.setMonth(d.getMonth() - 1);
-    endDate = monthNames[d.getMonth()] + " " + d.getFullYear();
-  }
-  console.log(endDate);
+//   let d = new Date();
+//   let endDate = "";
+//   d.setDate(1);
+//   for (let index = 0; index < 11; index++) {
+//     d.setMonth(d.getMonth() - 1);
+//     endDate = monthNames[d.getMonth()] + " " + d.getFullYear();
+//   }
+//   console.log(endDate);
 
-  const data = await Order.aggregate([
-    {
-      $match: {
-        createdAt: {
-          $lte: new Date(),
-          $gte: new Date(endDate),
-        },
-      },
-    },
-    {
-      $group: {
-        _id: {
-          month: "$month",
-        },
-        count: { $sum: 1 },
-      },
-    },
-  ]);
+//   const data = await Order.aggregate([
+//     {
+//       $match: {
+//         createdAt: {
+//           $lte: new Date(),
+//           $gte: new Date(endDate),
+//         },
+//       },
+//     },
+//     {
+//       $group: {
+//         _id: {
+//           month: "$month",
+//         },
+//         count: { $sum: 1 },
+//       },
+//     },
+//   ]);
 
-  res.json(data);
-});
+//   res.json(data);
+// });
 
 const getYearlyTotalOrders = asyncHandler(async (req, res) => {
   let monthNames = [
@@ -661,6 +677,6 @@ module.exports = {
   getOrderByUserId,
   deleteOrder,
   getMonthWiseOrderIncome,
-  getMonthWiseOrderCount,
   getYearlyTotalOrders,
+  getSingleOrder,
 };

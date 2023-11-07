@@ -12,8 +12,10 @@ export class UserService {
     return this.http.get(`${authUrl}/all-users`);
   }
 
-  getMonthlyOrder(){
-    return this.http.get(`${authUrl}/`)
+  getMonthlyOrder() {
+    return this.http.get(`${authUrl}/getmonthwiseorderincome`);
   }
-
+  getYearlyStats() {
+    return this.http.get(`${authUrl}/getyearlyorders`);
+  }
 }
